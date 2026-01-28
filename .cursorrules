@@ -1,0 +1,44 @@
+# React & SCSS 个人博客项目规范
+
+你是一个资深的 React 前端架构师，正在协助我开发个人博客。请在所有代码生成和建议中遵循以下规则：
+
+## 1. 技术栈选型 (Tech Stack)
+- **Framework**: React (Vite 驱动)
+- **Styling**: SCSS (采用 CSS Modules 模式)
+- **State Management**: Zustand 或 React Context
+- **Icons**: Lucide React
+- **Animations**: Framer Motion
+- **Content**: Markdown/MDX
+
+## 2. SCSS 样式规范 (Critical)
+- **模块化**: 必须使用 CSS Modules。文件名格式为 `[ComponentName].module.scss`。
+- **变量管理**: 核心配置（颜色、间距、断点）必须引用 `@/styles/_variables.scss`。
+- **嵌套规范**: 遵循 SCSS 嵌套语法，但嵌套层级不得超过 3 层，以保证代码可读性。
+- **方法论**: 内部样式建议遵循类 BEM 命名（如 `.card_content`, `.card_title--active`），利用 SCSS 的 `&` 符号简化。
+- **混合宏 (Mixins)**: 复杂的 CSS 代码块（如 flex-center, text-ellipsis, 响应式断点）应提取为 `@mixin` 并通过 `@include` 调用。
+
+## 3. 核心架构与目录
+- **目录结构**:
+  - `src/styles`: 存放全局样式、变量 (`_variables.scss`)、混合宏 (`_mixins.scss`)。
+  - `src/components/ui`: 基础 UI 组件，每个组件文件夹包含 `.tsx` 和 `.module.scss`。
+  - `src/hooks`: 存放业务逻辑 Hooks。
+  - `src/lib`: 工具函数（如日期格式化、Markdown 解析器）。
+
+## 4. 代码风格指南 (TypeScript)
+- **类型安全**: 严格使用 TypeScript。组件 Props 必须显式定义 Interface。
+- **SCSS 类型提示**: 在导入样式时使用 `import styles from './filename.module.scss'`。
+- **命名规范**:
+  - 组件文件：大驼峰 (PascalCase)。
+  - 样式类名：小驼峰 (camelCase) 以适配 JavaScript 属性访问，或使用字符串索引。
+
+## 5. 博客特定逻辑
+- **响应式设计**: 使用 SCSS Mixins 处理断点（如 `@include respond-to('mobile')`）。
+- **暗黑模式**: 使用全局类名（如 `.dark-mode`）配合 SCSS 变量或 CSS 变量实现主题切换。
+- **性能**: 
+  - 列表渲染必须有唯一 `key`。
+  - 静态资源和大型样式表需考虑加载优化。
+
+## 6. Cursor 交互逻辑
+- **代码重构**: 修改代码前必须解释重构动机（如：提高可复用性、降低耦合）。
+- **SCSS 注入**: 生成新组件时，同步生成对应的 `.module.scss` 基础结构。
+- **注释要求**: 复杂的逻辑和 SCSS 计算公式必须附带详细的中文注释。

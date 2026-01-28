@@ -1,0 +1,96 @@
+// SCSS 变量定义
+// 核心配置：颜色、间距、断点等
+
+// ========== 颜色变量 ==========
+// 主色调
+$primary-color: #1890ff;
+$primary-hover: #40a9ff;
+$primary-active: #096dd9;
+
+// 辅助色
+$success-color: #52c41a;
+$warning-color: #faad14;
+$error-color: #ff4d4f;
+$info-color: #1890ff;
+
+// 中性色
+$text-primary: #262626;
+$text-secondary: #595959;
+$text-disabled: #bfbfbf;
+$text-placeholder: #8c8c8c;
+
+$border-color: #d9d9d9;
+$border-color-light: #f0f0f0;
+$background-color: #ffffff;
+$background-color-light: #fafafa;
+
+// 暗黑模式颜色
+$dark-bg-primary: #141414;
+$dark-bg-secondary: #1f1f1f;
+$dark-text-primary: #ffffff;
+$dark-text-secondary: rgba(255, 255, 255, 0.85);
+$dark-border-color: #434343;
+
+// ========== 间距变量 ==========
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;
+
+// ========== 字体变量 ==========
+$font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+$font-family-code: 'Source Code Pro', 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace;
+
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-xxl: 24px;
+$font-size-title: 32px;
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$line-height-base: 1.6;
+$line-height-tight: 1.4;
+$line-height-loose: 1.8;
+
+// ========== 断点变量 ==========
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1600px;
+
+// ========== 圆角变量 ==========
+$border-radius-sm: 2px;
+$border-radius-base: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-full: 9999px;
+
+// ========== 阴影变量 ==========
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-base: 0 2px 8px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+$shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+
+// ========== 过渡动画变量 ==========
+$transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+// ========== Z-index 层级 ==========
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
