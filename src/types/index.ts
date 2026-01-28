@@ -31,16 +31,16 @@ export interface Tag {
   articleCount?: number;
 }
 
-// 路由参数类型
-export interface ArticleParams {
+// 路由参数类型 - 需要满足 Record<string, string | undefined> 约束
+export interface ArticleParams extends Record<string, string | undefined> {
   id: string;
 }
 
-export interface CategoryParams {
+export interface CategoryParams extends Record<string, string | undefined> {
   name: string;
 }
 
-export interface TagParams {
+export interface TagParams extends Record<string, string | undefined> {
   name: string;
 }
 

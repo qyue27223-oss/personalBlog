@@ -422,7 +422,7 @@ import { Article } from '../../types';
 
 **个人博客项目**
 
-- GitHub: [@yourusername](https://github.com/yourusername)
+- GitHub: [@qyue](https://github.com/qyue27223-oss)
 
 ---
 

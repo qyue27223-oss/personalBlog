@@ -24,7 +24,10 @@ api.interceptors.request.use(
 // 响应拦截器
 api.interceptors.response.use(
   (response: AxiosResponse<ApiResponse<any>>) => {
-    return response.data;
+    // 返回 response.data 而不是完整的 response
+    // 使用类型断言，因为 axios 拦截器期望返回 AxiosResponse，但我们返回 ApiResponse
+    // 这是合理的，因为我们想要在调用 API 时直接得到 ApiResponse 而不是 AxiosResponse
+    return response.data as unknown as AxiosResponse<ApiResponse<any>>;
   },
   (error) => {
     // 统一错误处理
