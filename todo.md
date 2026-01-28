@@ -8,30 +8,30 @@
 ## 第一阶段：项目基础搭建
 
 ### 1.1 安装核心依赖
-- [ ] 安装 React Router（路由管理）
-- [ ] 安装 UI 组件库（如 Ant Design 或 Material-UI）
-- [ ] 安装样式处理工具（如 styled-components 或 Tailwind CSS）
-- [ ] 安装状态管理工具（如 Redux Toolkit 或 Zustand）
-- [ ] 安装 HTTP 请求库（如 Axios）
-- [ ] 安装 Markdown 解析库（如 react-markdown）
-- [ ] 安装代码高亮库（如 react-syntax-highlighter）
-- [ ] 安装日期处理库（如 dayjs 或 date-fns）
+- [x] 安装 React Router（路由管理）
+- [x] 安装 UI 组件库（如 Ant Design 或 Material-UI）
+- [x] 安装样式处理工具（如 styled-components 或 Tailwind CSS）
+- [x] 安装状态管理工具（如 Redux Toolkit 或 Zustand）
+- [x] 安装 HTTP 请求库（如 Axios）
+- [x] 安装 Markdown 解析库（如 react-markdown）
+- [x] 安装代码高亮库（如 react-syntax-highlighter）
+- [x] 安装日期处理库（如 dayjs 或 date-fns）
 
 ### 1.2 项目结构规划
-- [ ] 创建组件目录结构（components/）
-- [ ] 创建页面目录结构（pages/）
-- [ ] 创建工具函数目录（utils/）
-- [ ] 创建样式目录（styles/）
-- [ ] 创建 API 服务目录（services/）
-- [ ] 创建状态管理目录（store/）
-- [ ] 创建常量配置目录（constants/）
-- [ ] 创建类型定义目录（types/，如果使用 TypeScript）
+- [x] 创建组件目录结构（components/）
+- [x] 创建页面目录结构（pages/）
+- [x] 创建工具函数目录（utils/）
+- [x] 创建样式目录（styles/）
+- [x] 创建 API 服务目录（services/）
+- [x] 创建状态管理目录（store/）
+- [x] 创建常量配置目录（constants/）
+- [x] 创建类型定义目录（types/，如果使用 TypeScript）
 
 ### 1.3 路由配置
-- [ ] 配置 React Router
-- [ ] 定义路由结构（首页、文章列表、文章详情、分类、标签、关于、搜索等）
+- [x] 配置 React Router
+- [x] 定义路由结构（首页、文章列表、文章详情、分类、标签、关于、搜索等）
 - [ ] 实现路由守卫（如果需要）
-- [ ] 配置 404 页面
+- [x] 配置 404 页面
 
 ---
 

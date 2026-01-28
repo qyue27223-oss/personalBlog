@@ -1,0 +1,4 @@
+# UI 组件目录
+# 基础 UI 组件存放位置，每个组件应包含：
+# - ComponentName.tsx
+# - ComponentName.module.scss

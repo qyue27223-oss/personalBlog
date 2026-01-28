@@ -1,0 +1,52 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.searchPage {
+  padding: $spacing-xl;
+
+  .title {
+    font-size: $font-size-title;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin-bottom: $spacing-lg;
+  }
+
+  .searchForm {
+    @include flex-center-vertical;
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+  }
+
+  .searchInput {
+    flex: 1;
+    max-width: 500px;
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid $border-color;
+    border-radius: $border-radius-base;
+    font-size: $font-size-base;
+    @include transition();
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+    }
+  }
+
+  .searchButton {
+    @include button-base;
+    background-color: $primary-color;
+    color: white;
+    border-color: $primary-color;
+
+    &:hover {
+      background-color: $primary-hover;
+      border-color: $primary-hover;
+    }
+  }
+
+  .result {
+    font-size: $font-size-base;
+    color: $text-secondary;
+  }
+}

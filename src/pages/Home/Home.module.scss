@@ -1,0 +1,19 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.homePage {
+  padding: $spacing-xl;
+  text-align: center;
+
+  .title {
+    font-size: $font-size-title;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin-bottom: $spacing-md;
+  }
+
+  .description {
+    font-size: $font-size-lg;
+    color: $text-secondary;
+  }
+}
