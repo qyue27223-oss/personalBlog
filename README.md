@@ -39,24 +39,25 @@
 
 ### 已实现功能
 
-- [x] 项目基础搭建（TypeScript + SCSS Modules）
-- [x] 路由系统配置（React Router v6）
-- [x] 页面结构搭建（10个基础页面）
+- [x] 项目基础搭建（TypeScript + SCSS Modules + Vite）
+- [x] 路由系统配置（React Router v6，含 v7 未来标志）
+- [x] 页面结构搭建（10 个基础页面）
+- [x] 布局组件（Header、Footer、Sidebar、RouteWrapper）
 - [x] 样式系统（全局变量、混合宏）
 - [x] 类型定义系统
+- [x] Mock 数据与占位图（轮播、文章等，使用 picsum.photos）
 
 ### 计划功能
 
-- [ ] 布局组件（Header、Footer、Sidebar）
-- [ ] 文章列表和详情页
-- [ ] 分类和标签系统
+- [ ] 文章列表和详情页完整联调
+- [ ] 分类和标签系统完善
 - [ ] 搜索功能
 - [ ] Markdown 渲染和代码高亮
 - [ ] 暗黑模式切换
 - [ ] 响应式设计优化
 - [ ] 性能优化（代码分割、懒加载）
 
-> 📌 **提示**：详细的功能开发计划请查看 [开发进度](#开发进度) 和 [todo.md](./todo.md)
+> 📌 **提示**：详细的功能开发计划请查看 [开发进度](#开发进度) 和 [TODO.md](./TODO.md)
 
 ---
 
@@ -89,7 +90,7 @@
 
 ### 开发工具
 
-- **React Scripts** `^5.0.1` - 构建工具
+- **Vite** `^5.4.2` - 构建工具
 - **ESLint** - 代码检查
 - **TypeScript** - 类型检查
 
@@ -130,7 +131,7 @@ person-blog/
 │   ├── App.tsx             # 主应用组件
 │   ├── App.module.scss     # 主应用样式
 │   ├── index.tsx           # 应用入口
-│   └── react-app-env.d.ts  # TypeScript 类型声明
+│   └── vite-env.d.ts        # Vite 类型声明
 ├── .cursorrules            # Cursor AI 开发规范
 ├── tsconfig.json           # TypeScript 配置
 ├── package.json            # 项目依赖配置
@@ -138,7 +139,7 @@ person-blog/
 └── README.md               # 项目说明文档
 ```
 
-> 📖 详细的项目结构说明请查看 [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md)
+> 📖 详细的项目结构说明请查看 [ARCHITECTURE.md](./ARCHITECTURE.md)
 
 ---
 
@@ -163,10 +164,10 @@ yarn install
 
 ```bash
 # 使用 npm
-npm start
+npm run dev
 
 # 或使用 yarn
-yarn start
+yarn dev
 ```
 
 应用将在 [http://localhost:3000](http://localhost:3000) 启动。
@@ -181,14 +182,10 @@ npm run build
 yarn build
 ```
 
-### 运行测试
+### 代码检查
 
 ```bash
-# 使用 npm
-npm test
-
-# 或使用 yarn
-yarn test
+npm run lint
 ```
 
 ---
@@ -312,15 +309,15 @@ import { Article } from '../../types';
 
 ### 第二阶段：核心页面开发 🚧
 
-- [ ] 布局组件（Header、Footer、Sidebar）
-- [ ] 首页开发（轮播图、文章列表）
-- [ ] 文章列表页
+- [x] 布局组件（Header、Footer、Sidebar）
+- [x] 首页开发（轮播图、文章列表占位）
+- [ ] 文章列表页与 Mock 联调
 - [ ] 文章详情页（Markdown 渲染、代码高亮）
-- [ ] 分类和标签页面
+- [ ] 分类和标签页面完善
 - [ ] 搜索功能
-- [ ] 关于页面
+- [ ] 关于页面完善
 
-**完成度**：0% ⏳
+**完成度**：约 30% ⏳
 
 ### 第三阶段：功能模块开发 📋
 
@@ -349,7 +346,7 @@ import { Article } from '../../types';
 
 **完成度**：0% ⚡
 
-> 📌 **详细任务清单**：请查看 [todo.md](./todo.md)
+> 📌 **详细任务清单**：请查看 [TODO.md](./TODO.md)
 
 ---
 
@@ -382,9 +379,8 @@ import { Article } from '../../types';
 
 ## 📚 相关文档
 
-- [项目结构文档](./PROJECT_STRUCTURE.md) - 详细的目录结构说明
-- [结构验证报告](./STRUCTURE_VALIDATION.md) - 模块化标准验证
-- [开发任务清单](./todo.md) - 详细的开发任务和进度
+- [项目架构文档](./ARCHITECTURE.md) - 详细的目录结构与架构说明
+- [开发任务清单](./TODO.md) - 详细的开发任务和进度
 - [开发规范](./.cursorrules) - Cursor AI 开发规范
 
 ---

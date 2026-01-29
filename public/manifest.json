@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "个人博客",
+  "name": "个人博客 - 分享前端开发、技术心得和生活感悟",
   "icons": [
     {
       "src": "favicon.ico",

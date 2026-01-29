@@ -12,7 +12,7 @@
       "tags": ["React", "Hooks", "JavaScript"],
       "views": 1250,
       "likes": 89,
-      "coverImage": "https://via.placeholder.com/800x400?text=React+Hooks"
+      "coverImage": "https://picsum.photos/seed/react-hooks/800/400"
     },
     {
       "id": "2",
@@ -26,7 +26,7 @@
       "tags": ["TypeScript", "类型系统"],
       "views": 980,
       "likes": 67,
-      "coverImage": "https://via.placeholder.com/800x400?text=TypeScript"
+      "coverImage": "https://picsum.photos/seed/typescript/800/400"
     },
     {
       "id": "3",
@@ -39,7 +39,7 @@
       "tags": ["CSS", "Grid", "布局"],
       "views": 756,
       "likes": 45,
-      "coverImage": "https://via.placeholder.com/800x400?text=CSS+Grid"
+      "coverImage": "https://picsum.photos/seed/css-grid/800/400"
     },
     {
       "id": "4",
@@ -52,7 +52,7 @@
       "tags": ["Node.js", "性能优化"],
       "views": 654,
       "likes": 38,
-      "coverImage": "https://via.placeholder.com/800x400?text=Node.js"
+      "coverImage": "https://picsum.photos/seed/nodejs/800/400"
     },
     {
       "id": "5",
@@ -65,7 +65,7 @@
       "tags": ["Docker", "容器化", "部署"],
       "views": 892,
       "likes": 56,
-      "coverImage": "https://via.placeholder.com/800x400?text=Docker"
+      "coverImage": "https://picsum.photos/seed/docker/800/400"
     },
     {
       "id": "6",
@@ -78,7 +78,7 @@
       "tags": ["Git", "版本控制"],
       "views": 543,
       "likes": 32,
-      "coverImage": "https://via.placeholder.com/800x400?text=Git"
+      "coverImage": "https://picsum.photos/seed/git/800/400"
     },
     {
       "id": "7",
@@ -91,7 +91,7 @@
       "tags": ["Webpack", "构建工具"],
       "views": 721,
       "likes": 41,
-      "coverImage": "https://via.placeholder.com/800x400?text=Webpack"
+      "coverImage": "https://picsum.photos/seed/webpack/800/400"
     },
     {
       "id": "8",
@@ -104,7 +104,7 @@
       "tags": ["Vue", "Composition API"],
       "views": 634,
       "likes": 29,
-      "coverImage": "https://via.placeholder.com/800x400?text=Vue+3"
+      "coverImage": "https://picsum.photos/seed/vue3/800/400"
     }
   ]
 }
