@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { ROUTES } from '@/constants/routes';
+import RouteWrapper from '@/components/Layout/RouteWrapper';
 import Home from '@/pages/Home';
 import Articles from '@/pages/Articles';
 import ArticleDetail from '@/pages/ArticleDetail';
@@ -15,42 +16,82 @@ import NotFound from '@/pages/NotFound';
 export const router = createBrowserRouter([
   {
     path: ROUTES.HOME,
-    element: <Home />,
+    element: (
+      <RouteWrapper>
+        <Home />
+      </RouteWrapper>
+    ),
   },
   {
     path: ROUTES.ARTICLES,
-    element: <Articles />,
+    element: (
+      <RouteWrapper>
+        <Articles />
+      </RouteWrapper>
+    ),
   },
   {
     path: ROUTES.ARTICLE_DETAIL,
-    element: <ArticleDetail />,
+    element: (
+      <RouteWrapper>
+        <ArticleDetail />
+      </RouteWrapper>
+    ),
   },
   {
     path: ROUTES.CATEGORIES,
-    element: <Categories />,
+    element: (
+      <RouteWrapper>
+        <Categories />
+      </RouteWrapper>
+    ),
   },
   {
     path: ROUTES.CATEGORY_DETAIL,
-    element: <CategoryDetail />,
+    element: (
+      <RouteWrapper>
+        <CategoryDetail />
+      </RouteWrapper>
+    ),
   },
   {
     path: ROUTES.TAGS,
-    element: <Tags />,
+    element: (
+      <RouteWrapper>
+        <Tags />
+      </RouteWrapper>
+    ),
   },
   {
     path: ROUTES.TAG_DETAIL,
-    element: <TagDetail />,
+    element: (
+      <RouteWrapper>
+        <TagDetail />
+      </RouteWrapper>
+    ),
   },
   {
     path: ROUTES.ABOUT,
-    element: <About />,
+    element: (
+      <RouteWrapper>
+        <About />
+      </RouteWrapper>
+    ),
   },
   {
     path: ROUTES.SEARCH,
-    element: <Search />,
+    element: (
+      <RouteWrapper>
+        <Search />
+      </RouteWrapper>
+    ),
   },
   {
     path: ROUTES.NOT_FOUND,
-    element: <NotFound />,
+    element: (
+      <RouteWrapper showSidebar={false}>
+        <NotFound />
+      </RouteWrapper>
+    ),
   },
 ]);

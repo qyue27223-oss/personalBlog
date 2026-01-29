@@ -1,0 +1,27 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.empty {
+  @include flex-center;
+  @include flex-column;
+  gap: $spacing-sm;
+  padding: $spacing-xxl;
+  color: $text-secondary;
+  text-align: center;
+
+  @include dark-mode {
+    color: $dark-text-secondary;
+  }
+}
+
+.message {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  margin: 0;
+}
+
+.description {
+  font-size: $font-size-base;
+  margin: 0;
+  opacity: 0.8;
+}

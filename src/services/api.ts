@@ -3,7 +3,7 @@ import { ApiResponse } from '@/types';
 
 // 创建 axios 实例
 const api: AxiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL || '/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',

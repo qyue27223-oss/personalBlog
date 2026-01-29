@@ -1,0 +1,25 @@
+{
+  "carousel": [
+    {
+      "id": "1",
+      "title": "欢迎来到我的个人博客",
+      "description": "分享前端开发、技术心得和生活感悟",
+      "image": "https://via.placeholder.com/1200x400?text=Welcome+to+My+Blog",
+      "link": "/"
+    },
+    {
+      "id": "2",
+      "title": "React 18 新特性解析",
+      "description": "深入了解 React 18 带来的新特性和改进",
+      "image": "https://via.placeholder.com/1200x400?text=React+18+Features",
+      "link": "/articles"
+    },
+    {
+      "id": "3",
+      "title": "前端工程化实践指南",
+      "description": "从零开始构建现代化的前端工程化体系",
+      "image": "https://via.placeholder.com/1200x400?text=Frontend+Engineering",
+      "link": "/articles"
+    }
+  ]
+}

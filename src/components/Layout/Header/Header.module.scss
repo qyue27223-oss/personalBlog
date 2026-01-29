@@ -1,0 +1,187 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.header {
+  background: $background-color;
+  border-bottom: 1px solid $border-color-light;
+  box-shadow: $shadow-sm;
+  position: sticky;
+  top: 0;
+  z-index: $z-index-sticky;
+  @include transition();
+
+  @include dark-mode {
+    background: $dark-bg-primary;
+    border-bottom-color: $dark-border-color;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+  @include flex-between;
+  height: 64px;
+
+  @include respond-below('sm') {
+    padding: 0 $spacing-md;
+  }
+}
+
+.logo {
+  text-decoration: none;
+  color: $text-primary;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  @include transition();
+
+  &:hover {
+    color: $primary-color;
+  }
+
+  @include dark-mode {
+    color: $dark-text-primary;
+
+    &:hover {
+      color: $primary-hover;
+    }
+  }
+}
+
+.logoText {
+  display: inline-block;
+}
+
+.nav {
+  display: flex;
+  gap: $spacing-lg;
+  align-items: center;
+
+  @include respond-below('sm') {
+    display: none;
+  }
+}
+
+.navItem {
+  color: $text-secondary;
+  text-decoration: none;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-base;
+  @include transition();
+
+  &:hover {
+    color: $primary-color;
+    background: rgba($primary-color, 0.1);
+  }
+
+  @include dark-mode {
+    color: $dark-text-secondary;
+
+    &:hover {
+      color: $primary-hover;
+      background: rgba($primary-color, 0.2);
+    }
+  }
+}
+
+.navItemActive {
+  color: $primary-color;
+  background: rgba($primary-color, 0.1);
+
+  @include dark-mode {
+    color: $primary-hover;
+    background: rgba($primary-color, 0.2);
+  }
+}
+
+.mobileMenuButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $text-primary;
+  padding: $spacing-sm;
+  @include flex-center;
+  @include transition();
+
+  &:hover {
+    color: $primary-color;
+  }
+
+  @include respond-below('sm') {
+    display: flex;
+  }
+
+  @include dark-mode {
+    color: $dark-text-primary;
+
+    &:hover {
+      color: $primary-hover;
+    }
+  }
+}
+
+.mobileNav {
+  display: none;
+  flex-direction: column;
+  padding: $spacing-md $spacing-lg;
+  border-top: 1px solid $border-color-light;
+  background: $background-color-light;
+  animation: slideDown 0.3s ease-out;
+
+  @include respond-below('sm') {
+    display: flex;
+  }
+
+  @include dark-mode {
+    background: $dark-bg-secondary;
+    border-top-color: $dark-border-color;
+  }
+}
+
+.mobileNavItem {
+  color: $text-secondary;
+  text-decoration: none;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  padding: $spacing-md;
+  border-radius: $border-radius-base;
+  @include transition();
+
+  &:hover {
+    color: $primary-color;
+    background: rgba($primary-color, 0.1);
+  }
+
+  @include dark-mode {
+    color: $dark-text-secondary;
+
+    &:hover {
+      color: $primary-hover;
+      background: rgba($primary-color, 0.2);
+    }
+  }
+}
+
+.mobileNavItemActive {
+  color: $primary-color;
+  background: rgba($primary-color, 0.1);
+
+  @include dark-mode {
+    color: $primary-hover;
+    background: rgba($primary-color, 0.2);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

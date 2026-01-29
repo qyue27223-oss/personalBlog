@@ -1,0 +1,51 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.layout {
+  min-height: 100vh;
+  @include flex-column;
+  background: $background-color-light;
+
+  @include dark-mode {
+    background: $dark-bg-primary;
+  }
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-lg;
+
+  @include respond-below('sm') {
+    padding: $spacing-md;
+  }
+}
+
+.content {
+  display: flex;
+  gap: $spacing-xl;
+  align-items: flex-start;
+
+  @include respond-below('md') {
+    flex-direction: column;
+  }
+}
+
+.mainContent {
+  flex: 1;
+  min-width: 0; // 防止 flex 子元素溢出
+}
+
+.sidebarWrapper {
+  width: 100%;
+
+  @include respond-to('md') {
+    width: 300px;
+    flex-shrink: 0;
+  }
+}

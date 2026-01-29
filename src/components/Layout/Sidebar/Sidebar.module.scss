@@ -1,0 +1,182 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.sidebar {
+  @include flex-column;
+  gap: $spacing-lg;
+  width: 100%;
+
+  @include respond-to('md') {
+    width: 300px;
+    flex-shrink: 0;
+  }
+}
+
+.widget {
+  background: $background-color;
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+  box-shadow: $shadow-base;
+  @include transition();
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+
+  @include dark-mode {
+    background: $dark-bg-secondary;
+  }
+}
+
+.widgetTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  margin: 0 0 $spacing-md 0;
+  padding-bottom: $spacing-md;
+  border-bottom: 2px solid $border-color-light;
+
+  @include dark-mode {
+    color: $dark-text-primary;
+    border-bottom-color: $dark-border-color;
+  }
+}
+
+.categoryList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.categoryItem {
+  margin: 0;
+}
+
+.categoryLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $text-secondary;
+  text-decoration: none;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-base;
+  @include transition();
+
+  &:hover {
+    color: $primary-color;
+    background: rgba($primary-color, 0.1);
+  }
+
+  @include dark-mode {
+    color: $dark-text-secondary;
+
+    &:hover {
+      color: $primary-hover;
+      background: rgba($primary-color, 0.2);
+    }
+  }
+}
+
+.categoryName {
+  font-size: $font-size-base;
+}
+
+.categoryCount {
+  font-size: $font-size-sm;
+  color: $text-disabled;
+
+  @include dark-mode {
+    color: $dark-text-secondary;
+    opacity: 0.6;
+  }
+}
+
+.tagCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.tag {
+  display: inline-block;
+  padding: $spacing-xs $spacing-md;
+  background: rgba($primary-color, 0.1);
+  color: $primary-color;
+  border-radius: $border-radius-full;
+  font-size: $font-size-sm;
+  text-decoration: none;
+  @include transition();
+
+  &:hover {
+    background: $primary-color;
+    color: $background-color;
+    transform: translateY(-2px);
+  }
+
+  @include dark-mode {
+    background: rgba($primary-color, 0.2);
+    color: $primary-hover;
+
+    &:hover {
+      background: $primary-color;
+      color: $dark-text-primary;
+    }
+  }
+}
+
+.articleList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.articleItem {
+  margin: 0;
+}
+
+.articleLink {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  color: $text-secondary;
+  text-decoration: none;
+  padding: $spacing-sm;
+  border-radius: $border-radius-base;
+  @include transition();
+
+  &:hover {
+    color: $primary-color;
+    background: rgba($primary-color, 0.1);
+  }
+
+  @include dark-mode {
+    color: $dark-text-secondary;
+
+    &:hover {
+      color: $primary-hover;
+      background: rgba($primary-color, 0.2);
+    }
+  }
+}
+
+.articleTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  @include text-ellipsis-multiline(2);
+}
+
+.articleDate {
+  font-size: $font-size-xs;
+  color: $text-disabled;
+
+  @include dark-mode {
+    color: $dark-text-secondary;
+    opacity: 0.6;
+  }
+}
+
+// 加载和空状态样式已移至公共组件

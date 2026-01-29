@@ -1,0 +1,214 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.card {
+  background: $background-color;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  box-shadow: $shadow-base;
+  @include transition();
+  @include flex-column;
+
+  &:hover {
+    box-shadow: $shadow-md;
+    transform: translateY(-4px);
+  }
+
+  @include dark-mode {
+    background: $dark-bg-secondary;
+  }
+}
+
+.coverLink {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding-top: 56.25%; // 16:9 比例
+}
+
+.coverImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  @include transition();
+
+  .card:hover & {
+    transform: scale(1.05);
+  }
+}
+
+.content {
+  padding: $spacing-lg;
+  @include flex-column;
+  gap: $spacing-md;
+  flex: 1;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  align-items: center;
+}
+
+.category {
+  display: inline-block;
+  padding: $spacing-xs $spacing-md;
+  background: rgba($primary-color, 0.1);
+  color: $primary-color;
+  border-radius: $border-radius-full;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  @include transition();
+
+  &:hover {
+    background: $primary-color;
+    color: $background-color;
+  }
+
+  @include dark-mode {
+    background: rgba($primary-color, 0.2);
+    color: $primary-hover;
+
+    &:hover {
+      background: $primary-color;
+      color: $dark-text-primary;
+    }
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-xs $spacing-sm;
+  background: rgba($text-secondary, 0.1);
+  color: $text-secondary;
+  border-radius: $border-radius-base;
+  font-size: $font-size-xs;
+  text-decoration: none;
+  @include transition();
+
+  &:hover {
+    background: rgba($primary-color, 0.1);
+    color: $primary-color;
+  }
+
+  @include dark-mode {
+    background: rgba($dark-text-secondary, 0.2);
+    color: $dark-text-secondary;
+
+    &:hover {
+      background: rgba($primary-color, 0.2);
+      color: $primary-hover;
+    }
+  }
+}
+
+.title {
+  margin: 0;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+}
+
+.titleLink {
+  color: $text-primary;
+  text-decoration: none;
+  @include transition();
+
+  &:hover {
+    color: $primary-color;
+  }
+
+  @include dark-mode {
+    color: $dark-text-primary;
+
+    &:hover {
+      color: $primary-hover;
+    }
+  }
+}
+
+.excerpt {
+  color: $text-secondary;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  margin: 0;
+  @include text-ellipsis-multiline(3);
+
+  @include dark-mode {
+    color: $dark-text-secondary;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  margin-top: auto;
+  padding-top: $spacing-md;
+  border-top: 1px solid $border-color-light;
+
+  @include dark-mode {
+    border-top-color: $dark-border-color;
+  }
+}
+
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  align-items: center;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  color: $text-disabled;
+  font-size: $font-size-sm;
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  @include dark-mode {
+    color: $dark-text-secondary;
+    opacity: 0.7;
+  }
+}
+
+.readMore {
+  color: $primary-color;
+  text-decoration: none;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  @include transition();
+
+  &:hover {
+    color: $primary-hover;
+    transform: translateX(4px);
+  }
+
+  @include dark-mode {
+    color: $primary-hover;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}

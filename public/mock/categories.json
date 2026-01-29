@@ -1,0 +1,28 @@
+{
+  "categories": [
+    {
+      "name": "前端开发",
+      "slug": "frontend",
+      "description": "前端技术相关文章",
+      "articleCount": 5
+    },
+    {
+      "name": "后端开发",
+      "slug": "backend",
+      "description": "后端技术相关文章",
+      "articleCount": 1
+    },
+    {
+      "name": "DevOps",
+      "slug": "devops",
+      "description": "DevOps 相关文章",
+      "articleCount": 1
+    },
+    {
+      "name": "工具",
+      "slug": "tools",
+      "description": "开发工具相关文章",
+      "articleCount": 1
+    }
+  ]
+}

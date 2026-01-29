@@ -2,18 +2,189 @@
 @import '@/styles/mixins';
 
 .homePage {
-  padding: $spacing-xl;
-  text-align: center;
+  @include flex-column;
+  gap: $spacing-xxl;
+}
 
-  .title {
-    font-size: $font-size-title;
-    font-weight: $font-weight-bold;
-    color: $text-primary;
-    margin-bottom: $spacing-md;
-  }
+// ========== 轮播图样式 ==========
+.carouselSection {
+  width: 100%;
+  margin-bottom: $spacing-xl;
+}
 
-  .description {
-    font-size: $font-size-lg;
-    color: $text-secondary;
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+
+  @include respond-below('sm') {
+    height: 300px;
   }
 }
+
+.carouselTrack {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  @include transition(transform, 0.5s, ease-in-out);
+}
+
+.carouselItem {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carouselImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carouselContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: $spacing-xl;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: $background-color;
+
+  @include respond-below('sm') {
+    padding: $spacing-lg;
+  }
+}
+
+.carouselTitle {
+  font-size: $font-size-title;
+  font-weight: $font-weight-bold;
+  margin: 0 0 $spacing-sm 0;
+  color: $background-color;
+
+  @include respond-below('sm') {
+    font-size: $font-size-xxl;
+  }
+}
+
+.carouselDescription {
+  font-size: $font-size-lg;
+  margin: 0;
+  color: rgba($background-color, 0.9);
+
+  @include respond-below('sm') {
+    font-size: $font-size-base;
+  }
+}
+
+.carouselButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba($background-color, 0.8);
+  border: none;
+  border-radius: $border-radius-full;
+  width: 48px;
+  height: 48px;
+  @include flex-center;
+  cursor: pointer;
+  color: $text-primary;
+  @include transition();
+  z-index: 10;
+
+  &:hover {
+    background: $background-color;
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  @include respond-below('sm') {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.carouselButtonNext {
+  right: $spacing-lg;
+
+  @include respond-below('sm') {
+    right: $spacing-md;
+  }
+}
+
+.carouselButton:not(.carouselButtonNext) {
+  left: $spacing-lg;
+
+  @include respond-below('sm') {
+    left: $spacing-md;
+  }
+}
+
+.carouselDots {
+  position: absolute;
+  bottom: $spacing-lg;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: $spacing-sm;
+  z-index: 10;
+}
+
+.carouselDot {
+  width: 10px;
+  height: 10px;
+  border-radius: $border-radius-full;
+  border: 2px solid $background-color;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  @include transition();
+
+  &:hover {
+    background: rgba($background-color, 0.5);
+  }
+}
+
+.carouselDotActive {
+  background: $background-color;
+}
+
+// ========== 文章列表样式 ==========
+.articlesSection {
+  @include flex-column;
+  gap: $spacing-xl;
+}
+
+.sectionTitle {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+  margin: 0;
+  padding-bottom: $spacing-md;
+  border-bottom: 2px solid $border-color-light;
+
+  @include dark-mode {
+    color: $dark-text-primary;
+    border-bottom-color: $dark-border-color;
+  }
+}
+
+.articlesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: $spacing-xl;
+
+  @include respond-below('sm') {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+// 加载、空状态和分页样式已移至公共组件

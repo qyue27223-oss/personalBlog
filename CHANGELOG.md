@@ -1,110 +1,188 @@
-# 更新日志
+# 📝 代码更新日志
 
-本文档记录项目的所有重要变更。
+> 记录项目的所有重要变更和版本更新
 
-格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)，
-并且本项目遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
+本文档遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/) 规范，版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/) 规范。
 
-## [未发布]
+## 📋 目录
 
-### 计划中
-- 布局组件开发
-- 文章列表和详情页
-- 分类和标签系统
-- 搜索功能
-- 暗黑模式切换
+- [更新日志格式说明](#更新日志格式说明)
+- [版本历史](#版本历史)
+  - [未发布](#未发布)
+  - [0.1.0](#010---2026-01-28)
 
 ---
 
-## [0.1.0] - 2026-01-28
+## 📖 更新日志格式说明
 
-### ✨ 新增
+### 版本号格式
 
-#### 项目基础
-- 项目初始化和配置
-- TypeScript 5.7.2 配置
-- SCSS Modules 样式系统
-- React Router v6 路由配置
-
-#### 目录结构
-- 创建完整的模块化目录结构
-- `components/ui/` - UI 组件目录
-- `pages/` - 页面组件（10个页面模块）
-- `hooks/` - 自定义 Hooks
-- `lib/` - 工具函数库
-- `utils/` - 通用工具函数
-- `types/` - TypeScript 类型定义
-- `constants/` - 常量配置
-- `services/` - API 服务
-- `store/` - 状态管理
-- `styles/` - 全局样式系统
-
-#### 页面组件
-- Home - 首页
-- Articles - 文章列表
-- ArticleDetail - 文章详情
-- Categories - 分类列表
-- CategoryDetail - 分类详情
-- Tags - 标签列表
-- TagDetail - 标签详情
-- About - 关于页面
-- Search - 搜索页面
-- NotFound - 404 页面
-
-#### 样式系统
-- `_variables.scss` - 全局变量（颜色、间距、字体、断点等）
-- `_mixins.scss` - 混合宏（响应式、Flexbox、文本处理等）
-- `index.scss` - 全局样式入口
-
-#### 类型定义
-- Article - 文章类型
-- Category - 分类类型
-- Tag - 标签类型
-- 路由参数类型
-- API 响应类型
-- 分页和搜索类型
-
-#### 工具配置
-- Axios API 配置
-- 路由配置和常量
-- TypeScript 类型声明文件
-
-### 🔧 优化
-
-- 模块化目录结构重构
-- 代码规范和文档完善
-- 删除临时文件和脚本
-
-### 📚 文档
-
-- README.md - 完整的项目说明文档
-- PROJECT_STRUCTURE.md - 项目结构文档
-- STRUCTURE_VALIDATION.md - 结构验证报告
-- CHANGELOG.md - 更新日志
-- 各目录的 README.md 说明文档
-
-### 🗑️ 删除
-
-- 所有旧的 JavaScript 文件（已转换为 TypeScript）
-- 所有旧的 CSS 文件（已转换为 SCSS Modules）
-- 临时清理脚本
-
----
-
-## 版本说明
+遵循语义化版本规范：`主版本号.次版本号.修订号`
 
 - **主版本号**：不兼容的 API 修改
 - **次版本号**：向下兼容的功能性新增
 - **修订号**：向下兼容的问题修正
 
+### 变更类型
+
+- **✨ 新增**：新功能
+- **🔧 优化**：性能优化、代码重构
+- **🐛 修复**：Bug 修复
+- **📚 文档**：文档更新
+- **🎨 样式**：样式调整
+- **♻️ 重构**：代码重构
+- **⚡ 性能**：性能优化
+- **🔒 安全**：安全问题修复
+- **🗑️ 移除**：功能移除
+
+### 示例格式
+
+```markdown
+### [版本号] - YYYY-MM-DD
+
+#### ✨ 新增
+- 功能描述
+
+#### 🔧 优化
+- 优化描述
+
+#### 🐛 修复
+- Bug 修复描述
+```
+
 ---
 
-## 更新说明
+## 📅 版本历史
 
-本文档会随着项目开发实时更新，记录每个版本的变更内容。
+### [未发布]
 
-每次发布新版本时，请：
-1. 更新版本号
-2. 添加变更记录
-3. 更新日期
-4. 更新 README.md 中的版本信息
+#### 计划中
+- [ ] 布局组件开发（Header、Footer、Sidebar）
+- [ ] 文章列表和详情页功能
+- [ ] 分类和标签系统
+- [ ] 搜索功能实现
+- [ ] Markdown 渲染和代码高亮
+- [ ] 暗黑模式切换
+- [ ] 响应式设计优化
+
+---
+
+### [0.1.0] - 2026-01-28
+
+#### ✨ 新增
+
+**项目初始化**
+- 初始化 React + TypeScript + Vite 项目
+- 配置项目基础结构和目录
+- 添加 `.cursorrules` 开发规范文件
+
+**路由系统**
+- 配置 React Router v6 路由系统
+- 创建 10 个基础页面路由：
+  - 首页 (`/`)
+  - 文章列表页 (`/articles`)
+  - 文章详情页 (`/articles/:id`)
+  - 分类列表页 (`/categories`)
+  - 分类详情页 (`/categories/:name`)
+  - 标签列表页 (`/tags`)
+  - 标签详情页 (`/tags/:name`)
+  - 搜索页 (`/search`)
+  - 关于页 (`/about`)
+  - 404 页面 (`/*`)
+
+**类型定义系统**
+- 定义全局 TypeScript 类型：
+  - `Article` - 文章类型
+  - `Category` - 分类类型
+  - `Tag` - 标签类型
+  - `ApiResponse` - API 响应类型
+  - `Pagination` - 分页类型
+  - `SearchParams` - 搜索参数类型
+
+**样式系统**
+- 配置 SCSS Modules
+- 创建全局样式变量文件 (`styles/_variables.scss`)
+- 创建 SCSS 混合宏文件 (`styles/_mixins.scss`)
+- 配置路径别名 `@/` 指向 `src/`
+
+**组件结构**
+- 创建布局组件目录结构：
+  - `components/Layout/Header/`
+  - `components/Layout/Footer/`
+  - `components/Layout/Sidebar/`
+  - `components/Layout/RouteWrapper.tsx`
+- 创建基础 UI 组件：
+  - `components/ui/ArticleCard/`
+  - `components/ui/Empty/`
+  - `components/ui/Loading/`
+  - `components/ui/Pagination/`
+
+**工具函数**
+- 创建日期处理工具 (`lib/date.ts`)
+- 创建路由工具函数 (`lib/router.ts`)
+- 创建自定义 Hooks：
+  - `hooks/useMockData.ts` - Mock 数据 Hook
+  - `hooks/usePagination.ts` - 分页 Hook
+
+**API 服务**
+- 配置 Axios (`services/api.ts`)
+- 创建 API 服务基础结构
+
+**状态管理**
+- 配置 Zustand 状态管理 (`store/index.ts`)
+- 创建 Store 基础结构
+
+**Mock 数据**
+- 创建 Mock 数据文件：
+  - `public/mock/articles.json`
+  - `public/mock/carousel.json`
+  - `public/mock/categories.json`
+  - `public/mock/tags.json`
+
+**常量配置**
+- 创建路由常量 (`constants/routes.ts`)
+- 创建导航常量 (`constants/navigation.ts`)
+
+**文档**
+- 创建项目 README.md
+- 创建项目架构文档 (ARCHITECTURE.md)
+- 创建开发指南文档 (DEVELOPMENT.md)
+- 创建更新日志文档 (CHANGELOG.md)
+- 创建开发任务清单 (TODO.md)
+
+#### 🔧 优化
+
+**项目结构**
+- 采用模块化目录结构
+- 每个页面组件独立文件夹
+- 组件和样式文件分离
+
+**代码规范**
+- 统一使用 TypeScript 类型定义
+- 统一使用 SCSS Modules 样式
+- 统一命名规范（PascalCase、camelCase）
+
+**构建配置**
+- 配置 Vite 构建工具
+- 配置 TypeScript 编译选项
+- 配置路径别名
+
+#### 📚 文档
+
+- 完善项目 README.md
+- 添加项目架构说明
+- 添加开发指南
+- 添加代码更新日志
+
+---
+
+## 🔗 相关链接
+
+- [项目架构文档](./ARCHITECTURE.md)
+- [开发指南](./DEVELOPMENT.md)
+- [README](./README.md)
+
+---
+
+**维护者**：项目开发团队  
+**最后更新**：2026-01-29

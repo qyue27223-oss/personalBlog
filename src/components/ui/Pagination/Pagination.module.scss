@@ -1,0 +1,104 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $spacing-md;
+  margin-top: $spacing-xl;
+  flex-wrap: wrap;
+}
+
+.paginationButton {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-sm $spacing-md;
+  background: $background-color;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-base;
+  color: $text-primary;
+  font-size: $font-size-base;
+  cursor: pointer;
+  @include transition();
+
+  &:hover:not(:disabled) {
+    border-color: $primary-color;
+    color: $primary-color;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  @include dark-mode {
+    background: $dark-bg-secondary;
+    border-color: $dark-border-color;
+    color: $dark-text-primary;
+
+    &:hover:not(:disabled) {
+      border-color: $primary-color;
+      color: $primary-hover;
+    }
+  }
+}
+
+.paginationPages {
+  display: flex;
+  gap: $spacing-xs;
+  align-items: center;
+}
+
+.paginationPage {
+  min-width: 40px;
+  height: 40px;
+  padding: 0 $spacing-sm;
+  background: $background-color;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-base;
+  color: $text-primary;
+  font-size: $font-size-base;
+  cursor: pointer;
+  @include transition();
+
+  &:hover {
+    border-color: $primary-color;
+    color: $primary-color;
+  }
+
+  @include dark-mode {
+    background: $dark-bg-secondary;
+    border-color: $dark-border-color;
+    color: $dark-text-primary;
+
+    &:hover {
+      border-color: $primary-color;
+      color: $primary-hover;
+    }
+  }
+}
+
+.paginationPageActive {
+  background: $primary-color;
+  border-color: $primary-color;
+  color: $background-color;
+
+  &:hover {
+    background: $primary-hover;
+    border-color: $primary-hover;
+    color: $background-color;
+  }
+
+  @include dark-mode {
+    background: $primary-color;
+    border-color: $primary-color;
+    color: $dark-text-primary;
+
+    &:hover {
+      background: $primary-hover;
+      border-color: $primary-hover;
+    }
+  }
+}
