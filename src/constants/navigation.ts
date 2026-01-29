@@ -12,7 +12,6 @@ export interface NavItem {
 export const NAV_ITEMS: NavItem[] = [
   { path: ROUTES.HOME, label: '首页' },
   { path: ROUTES.ARTICLES, label: '文章' },
-  { path: ROUTES.CATEGORIES, label: '分类' },
-  { path: ROUTES.TAGS, label: '标签' },
+  { path: ROUTES.PROJECT, label: '项目' },
   { path: ROUTES.ABOUT, label: '关于' },
 ];

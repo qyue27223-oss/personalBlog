@@ -15,7 +15,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+// 整页横向最小宽度，避免布局过窄
 body {
+  min-width: 320px;
   font-family: $font-family-base;
   font-size: $font-size-base;
   line-height: $line-height-base;

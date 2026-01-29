@@ -1,13 +1,13 @@
 @use '@/styles/variables' as *;
 @use '@/styles/mixins' as *;
 
-.articleDetailPage {
+.projectDetailPage {
   padding: $spacing-xl;
   max-width: 800px;
   margin: 0 auto;
 }
 
-.article {
+.project {
   @include flex-column;
   gap: $spacing-lg;
 }
@@ -42,9 +42,6 @@
 }
 
 .meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-md;
   font-size: $font-size-sm;
   color: $text-secondary;
 
@@ -53,23 +50,45 @@
   }
 }
 
-.metaItem {
+.description {
+  font-size: $font-size-base;
+  line-height: $line-height-loose;
+  color: $text-primary;
   margin: 0;
+
+  @include dark-mode {
+    color: $dark-text-primary;
+  }
 }
 
-.tagsRow {
+.techSection {
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.techTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  margin: 0;
+
+  @include dark-mode {
+    color: $dark-text-primary;
+  }
+}
+
+.techStack {
   display: flex;
   flex-wrap: wrap;
   gap: $spacing-sm;
-  align-items: center;
 }
 
-.category {
+.tech {
   display: inline-block;
-  padding: $spacing-xs $spacing-md;
+  padding: $spacing-sm $spacing-md;
   background: rgba($primary-color, 0.1);
   color: $primary-color;
-  border-radius: $border-radius-full;
+  border-radius: $border-radius-base;
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
 
@@ -79,42 +98,31 @@
   }
 }
 
-.tag {
-  display: inline-block;
-  padding: $spacing-xs $spacing-sm;
-  background: $background-color-light;
-  color: $text-secondary;
+.externalLink {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background: $primary-color;
+  color: $background-color;
   border-radius: $border-radius-base;
-  font-size: $font-size-xs;
-
-  @include dark-mode {
-    background: $dark-bg-secondary;
-    color: $dark-text-secondary;
-  }
-}
-
-.excerpt {
-  font-size: $font-size-lg;
-  color: $text-secondary;
-  line-height: $line-height-base;
-  margin: 0;
-  padding: $spacing-md 0;
-  border-bottom: 1px solid $border-color-light;
-
-  @include dark-mode {
-    color: $dark-text-secondary;
-    border-bottom-color: $dark-border-color;
-  }
-}
-
-.content {
   font-size: $font-size-base;
-  line-height: $line-height-loose;
-  color: $text-primary;
-  white-space: pre-wrap;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  width: fit-content;
+  @include transition();
+
+  &:hover {
+    background: $primary-hover;
+  }
 
   @include dark-mode {
+    background: $primary-hover;
     color: $dark-text-primary;
+
+    &:hover {
+      background: $primary-color;
+    }
   }
 }
 

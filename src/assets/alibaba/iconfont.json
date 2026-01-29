@@ -1,0 +1,65 @@
+{
+  "id": "5119842",
+  "name": "个人博客",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "33053610",
+      "name": "枫叶-copy",
+      "font_class": "fengye",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "68235",
+      "name": "分类",
+      "font_class": "fenlei",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "77033",
+      "name": "关注",
+      "font_class": "guanzhu",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "924719",
+      "name": "文章",
+      "font_class": "wenzhang",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "4320340",
+      "name": "关于",
+      "font_class": "guanyu",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "6170596",
+      "name": "链接",
+      "font_class": "lianjie",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "8287288",
+      "name": "标签",
+      "font_class": "biaoqian",
+      "unicode": "e66c",
+      "unicode_decimal": 58988
+    },
+    {
+      "icon_id": "1763409",
+      "name": "博客",
+      "font_class": "boke",
+      "unicode": "e6ae",
+      "unicode_decimal": 59054
+    }
+  ]
+}

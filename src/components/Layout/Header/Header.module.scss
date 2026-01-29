@@ -29,6 +29,9 @@
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
   text-decoration: none;
   color: $text-primary;
   font-size: $font-size-xl;
@@ -45,6 +48,23 @@
     &:hover {
       color: $primary-hover;
     }
+  }
+}
+
+// 容器用 module 类；图标用全局 iconfont + icon-fengye，再叠加 module 类控制颜色和字号
+.iconContainer {
+  @include flex-center;
+  line-height: 1;
+}
+
+// 枫叶图标本地样式：黄色 + 字号（通过 module 类生效，避免全局选择器）
+// 亮色主题用 $warning-color；当根节点带 .dark-mode 时切换为暗色主题下的橙黄色
+.iconFengye {
+  font-size: 1.25em;
+  color: $warning-color;
+
+  @include dark-mode {
+    color: #f5a623;
   }
 }
 

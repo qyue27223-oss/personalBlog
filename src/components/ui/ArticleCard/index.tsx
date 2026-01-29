@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Calendar, Eye, Heart, Tag as TagIcon } from 'lucide-react';
 import { Article } from '@/types';
 import { formatDate } from '@/lib';
-import { getArticleDetailPath, getCategoryDetailPath, getTagDetailPath } from '@/lib/router';
+import { getArticleDetailPath } from '@/lib/router';
 import styles from './ArticleCard.module.scss';
 
 interface ArticleCardProps {
@@ -29,23 +29,14 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, className }) => {
       <div className={styles.content}>
         {/* 分类和标签 */}
         <div className={styles.meta}>
-          <Link
-            to={getCategoryDetailPath(article.category)}
-            className={styles.category}
-          >
-            {article.category}
-          </Link>
+          <span className={styles.category}>{article.category}</span>
           {article.tags && article.tags.length > 0 && (
             <div className={styles.tags}>
               {article.tags.slice(0, 3).map((tag) => (
-                <Link
-                  key={tag}
-                  to={getTagDetailPath(tag)}
-                  className={styles.tag}
-                >
+                <span key={tag} className={styles.tag}>
                   <TagIcon size={12} />
                   {tag}
-                </Link>
+                </span>
               ))}
             </div>
           )}

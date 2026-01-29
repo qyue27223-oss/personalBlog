@@ -130,7 +130,7 @@ const Home: React.FC = () => {
 
         {/* 文章列表 */}
         <section className={styles.articlesSection}>
-          <h2 className={styles.sectionTitle}>最新文章</h2>
+          <h2 className={styles.sectionTitle}>全部文章</h2>
 
           {loading ? (
             <Loading />

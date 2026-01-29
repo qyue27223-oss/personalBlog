@@ -3,10 +3,8 @@ export const ROUTES = {
   HOME: '/',
   ARTICLES: '/articles',
   ARTICLE_DETAIL: '/article/:id',
-  CATEGORIES: '/categories',
-  CATEGORY_DETAIL: '/category/:name',
-  TAGS: '/tags',
-  TAG_DETAIL: '/tag/:name',
+  PROJECT: '/project',
+  PROJECT_DETAIL: '/project/:id',
   ABOUT: '/about',
   SEARCH: '/search',
   NOT_FOUND: '*'

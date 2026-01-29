@@ -23,11 +23,13 @@
   }
 }
 
+// 三栏等分布局：关于博客 | 快速链接 | 关注我
 .content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: $spacing-xl;
   margin-bottom: $spacing-xl;
+  align-items: start;
 
   @include respond-below('sm') {
     grid-template-columns: 1fr;
@@ -39,6 +41,7 @@
 .section {
   @include flex-column;
   gap: $spacing-md;
+  min-width: 0; // 防止长文本撑破网格
 }
 
 .sectionTitle {

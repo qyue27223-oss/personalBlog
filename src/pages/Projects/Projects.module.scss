@@ -1,11 +1,11 @@
 @use '@/styles/variables' as *;
 @use '@/styles/mixins' as *;
 
-.articlesPage {
+.projectsPage {
   padding: $spacing-xl;
 }
 
-.articlesSection {
+.projectsSection {
   @include flex-column;
   gap: $spacing-xl;
 }
@@ -34,7 +34,7 @@
   }
 }
 
-.articlesGrid {
+.projectsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: $spacing-xl;

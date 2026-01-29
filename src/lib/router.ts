@@ -27,15 +27,8 @@ export function getArticleDetailPath(id: string): string {
 }
 
 /**
- * 生成分类详情页路径
+ * 生成项目详情页路径
  */
-export function getCategoryDetailPath(name: string): string {
-  return replaceRouteParams(ROUTES.CATEGORY_DETAIL, { name });
-}
-
-/**
- * 生成标签详情页路径
- */
-export function getTagDetailPath(name: string): string {
-  return replaceRouteParams(ROUTES.TAG_DETAIL, { name });
+export function getProjectDetailPath(id: string): string {
+  return replaceRouteParams(ROUTES.PROJECT_DETAIL, { id });
 }

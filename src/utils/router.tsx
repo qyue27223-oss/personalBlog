@@ -4,10 +4,8 @@ import RouteWrapper from '@/components/Layout/RouteWrapper';
 import Home from '@/pages/Home';
 import Articles from '@/pages/Articles';
 import ArticleDetail from '@/pages/ArticleDetail';
-import Categories from '@/pages/Categories';
-import CategoryDetail from '@/pages/CategoryDetail';
-import Tags from '@/pages/Tags';
-import TagDetail from '@/pages/TagDetail';
+import Projects from '@/pages/Projects';
+import ProjectDetail from '@/pages/ProjectDetail';
 import About from '@/pages/About';
 import Search from '@/pages/Search';
 import NotFound from '@/pages/NotFound';
@@ -39,34 +37,18 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    path: ROUTES.CATEGORIES,
+    path: ROUTES.PROJECT,
     element: (
       <RouteWrapper>
-        <Categories />
+        <Projects />
       </RouteWrapper>
     ),
   },
   {
-    path: ROUTES.CATEGORY_DETAIL,
+    path: ROUTES.PROJECT_DETAIL,
     element: (
       <RouteWrapper>
-        <CategoryDetail />
-      </RouteWrapper>
-    ),
-  },
-  {
-    path: ROUTES.TAGS,
-    element: (
-      <RouteWrapper>
-        <Tags />
-      </RouteWrapper>
-    ),
-  },
-  {
-    path: ROUTES.TAG_DETAIL,
-    element: (
-      <RouteWrapper>
-        <TagDetail />
+        <ProjectDetail />
       </RouteWrapper>
     ),
   },

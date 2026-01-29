@@ -31,17 +31,25 @@ export interface Tag {
   articleCount?: number;
 }
 
+// 项目相关类型
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  excerpt?: string;
+  link?: string;
+  coverImage?: string;
+  techStack?: string[];
+  createdAt?: string;
+}
+
 // 路由参数类型 - 需要满足 Record<string, string | undefined> 约束
 export interface ArticleParams extends Record<string, string | undefined> {
   id: string;
 }
 
-export interface CategoryParams extends Record<string, string | undefined> {
-  name: string;
-}
-
-export interface TagParams extends Record<string, string | undefined> {
-  name: string;
+export interface ProjectParams extends Record<string, string | undefined> {
+  id: string;
 }
 
 // API 响应类型
