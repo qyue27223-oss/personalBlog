@@ -13,8 +13,9 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        // 允许在 SCSS 中使用 @import '@/styles/...'
-        // 注意：不在 additionalData 中自动导入，让每个文件显式导入以保持清晰
+        // 使用 Sass 现代 API，消除 legacy-js-api 弃用警告（Dart Sass 2.0 将移除旧 API）
+        api: 'modern',
+        // 供 @use '@/styles/...' 解析路径
         includePaths: [path.resolve(__dirname, './src')],
       },
     },

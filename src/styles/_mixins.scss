@@ -1,7 +1,7 @@
 // SCSS 混合宏 (Mixins)
 // 复杂的 CSS 代码块提取为 mixin，提高代码复用性
 
-@import './variables';
+@use './variables' as *;
 
 // ========== 响应式断点 Mixins ==========
 // 移动端优先的响应式设计

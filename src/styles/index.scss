@@ -1,6 +1,6 @@
 // 全局样式入口文件
-@import './variables';
-@import './mixins';
+@use './variables' as *;
+@use './mixins' as *;
 
 // ========== 全局重置样式 ==========
 * {
