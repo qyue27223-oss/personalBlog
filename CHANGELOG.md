@@ -9,6 +9,7 @@
 - [更新日志格式说明](#更新日志格式说明)
 - [版本历史](#版本历史)
   - [未发布](#未发布)
+  - [0.1.2](#020---2026-01-30)
   - [0.1.1](#011---2026-01-29)
   - [0.1.0](#010---2026-01-28)
 
@@ -55,6 +56,36 @@
 
 ## 📅 版本历史
 
+### [0.1.2] - 2026-01-30
+
+#### ✨ 新增
+
+- **导航**：顶部导航四项（首页、文章、项目、关于）；移除分类、标签独立入口
+- **文章**：文章列表页（Mock + 分页）、文章详情页（按 id 从 mock 展示）
+- **项目**：项目列表页（`pages/Projects`）、项目详情页；Mock 数据 `public/mock/projects.json`；`ProjectCard` 组件
+- **侧栏**：仅在「文章」「项目」列表页展示；分类/标签点击为筛选占位（不跳转）；移除「最新文章」模块
+- **Logo**：枫叶图标（iconfont + `icon-fengye.svg` 作为站点图标）；整页 favicon 使用 icon-fengye
+- **Hooks**：`useMediaQuery`（移动端菜单仅移动端渲染）、`usePagination` 用于文章/项目列表
+- **路由**：`PROJECT_DETAIL: '/project/:id'`；`getProjectDetailPath`；移除分类/标签相关路由与页面
+
+#### 🔧 优化
+
+- **布局**：整页最小宽度 320px；Footer 三栏等分布局
+- **类型**：新增 `Project`、`ProjectParams`；移除 `CategoryParams`、`TagParams`
+- **ArticleCard**：分类/标签改为仅展示（span），不再跳转
+
+#### 🗑️ 移除
+
+- 分类/标签路由页（Categories、CategoryDetail、Tags、TagDetail）及对应路由常量
+- `getCategoryDetailPath`、`getTagDetailPath`
+- `public/favicon.ico`、`logo192.png`、`logo512.png`、`manifest.json`（未使用）
+
+#### 📚 文档
+
+- 更新 README、ARCHITECTURE、CHANGELOG、DEVELOPMENT、TODO.md 以与当前代码一致
+
+---
+
 ### [0.1.1] - 2026-01-29
 
 #### 🐛 修复
@@ -70,13 +101,11 @@
 ### [未发布]
 
 #### 计划中
-- [ ] 布局组件开发（Header、Footer、Sidebar）
-- [ ] 文章列表和详情页功能
-- [ ] 分类和标签系统
-- [ ] 搜索功能实现
+- [ ] 侧栏分类/标签筛选与主内容区数据联调
+- [ ] 搜索功能完善
 - [ ] Markdown 渲染和代码高亮
 - [ ] 暗黑模式切换
-- [ ] 响应式设计优化
+- [ ] 响应式与性能优化
 
 ---
 
@@ -91,17 +120,7 @@
 
 **路由系统**
 - 配置 React Router v6 路由系统
-- 创建 10 个基础页面路由：
-  - 首页 (`/`)
-  - 文章列表页 (`/articles`)
-  - 文章详情页 (`/articles/:id`)
-  - 分类列表页 (`/categories`)
-  - 分类详情页 (`/categories/:name`)
-  - 标签列表页 (`/tags`)
-  - 标签详情页 (`/tags/:name`)
-  - 搜索页 (`/search`)
-  - 关于页 (`/about`)
-  - 404 页面 (`/*`)
+- 创建基础页面路由：首页 (`/`)、文章列表 (`/articles`)、文章详情 (`/article/:id`)、项目列表 (`/project`)、项目详情 (`/project/:id`)、关于 (`/about`)、搜索 (`/search`)、404 (`/*`)
 
 **类型定义系统**
 - 定义全局 TypeScript 类型：

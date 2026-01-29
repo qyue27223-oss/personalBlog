@@ -22,7 +22,7 @@
 
 ## 🎯 项目简介
 
-这是一个基于 React 19 和 TypeScript 构建的现代化个人博客系统，采用模块化架构设计，支持文章展示、分类管理、标签系统、搜索功能等核心特性。
+这是一个基于 React 19 和 TypeScript 构建的现代化个人博客系统（枫叶博客），采用模块化架构设计，支持文章与项目列表/详情、侧栏分类/标签筛选、搜索等核心特性；数据暂用 public/mock 下的 JSON 模拟。
 
 ### 核心特点
 
@@ -40,22 +40,24 @@
 ### 已实现功能
 
 - [x] 项目基础搭建（TypeScript + SCSS Modules + Vite）
-- [x] 路由系统配置（React Router v6，含 v7 未来标志）
-- [x] 页面结构搭建（10 个基础页面）
+- [x] 路由系统配置（React Router v6）
+- [x] 页面结构：首页、文章列表/详情、项目列表/详情、关于、搜索、404
 - [x] 布局组件（Header、Footer、Sidebar、RouteWrapper）
-- [x] 样式系统（全局变量、混合宏）
-- [x] 类型定义系统
-- [x] Mock 数据与占位图（轮播、文章等，使用 picsum.photos）
+- [x] 顶部导航四项：首页、文章、项目、关于（Logo 枫叶图标 + iconfont）
+- [x] 侧栏仅在「文章」「项目」列表页展示；分类/标签点击为筛选占位（不跳转）
+- [x] 样式系统（全局变量、混合宏、body 最小宽度 320px）
+- [x] 类型定义系统（Article、Project、Category、Tag 等）
+- [x] Mock 数据：`public/mock/`（articles、projects、carousel、categories、tags）
+- [x] 文章/项目列表分页、详情页从 mock 按 id 展示
+- [x] useMockData、usePagination、useMediaQuery 等 Hooks
 
 ### 计划功能
 
-- [ ] 文章列表和详情页完整联调
-- [ ] 分类和标签系统完善
-- [ ] 搜索功能
+- [ ] 侧栏分类/标签筛选与主内容区联调
+- [ ] 搜索功能完善
 - [ ] Markdown 渲染和代码高亮
 - [ ] 暗黑模式切换
-- [ ] 响应式设计优化
-- [ ] 性能优化（代码分割、懒加载）
+- [ ] 响应式与性能优化（代码分割、懒加载）
 
 > 📌 **提示**：详细的功能开发计划请查看 [开发进度](#开发进度) 和 [TODO.md](./TODO.md)
 
@@ -101,42 +103,44 @@
 ```
 person-blog/
 ├── public/                 # 静态资源
-│   ├── favicon.ico
-│   ├── index.html
-│   └── ...
+│   ├── icon-fengye.svg    # 站点图标（枫叶）
+│   ├── mock/              # Mock 数据
+│   │   ├── articles.json
+│   │   ├── projects.json
+│   │   ├── carousel.json
+│   │   ├── categories.json
+│   │   └── tags.json
+│   ├── robots.txt
+│   └── index.html 由根目录提供
 ├── src/
-│   ├── components/         # 组件目录
-│   │   └── ui/            # 基础 UI 组件
-│   ├── pages/             # 页面组件（模块化）
+│   ├── components/
+│   │   ├── Layout/        # Header、Footer、Sidebar、RouteWrapper
+│   │   └── ui/            # ArticleCard、ProjectCard、Empty、Loading、Pagination
+│   ├── pages/
 │   │   ├── Home/
-│   │   │   ├── index.tsx
-│   │   │   └── Home.module.scss
 │   │   ├── Articles/
 │   │   ├── ArticleDetail/
-│   │   └── ...
-│   ├── hooks/             # 自定义 Hooks
-│   ├── lib/               # 工具函数库
-│   ├── utils/             # 通用工具函数
-│   │   └── router.tsx     # 路由配置
-│   ├── types/             # TypeScript 类型定义
-│   ├── constants/         # 常量配置
-│   │   └── routes.ts      # 路由常量
-│   ├── services/          # API 服务
-│   │   └── api.ts         # Axios 配置
-│   ├── store/             # Zustand 状态管理
-│   ├── styles/            # 全局样式
-│   │   ├── _variables.scss # SCSS 变量
-│   │   ├── _mixins.scss    # SCSS 混合宏
-│   │   └── index.scss      # 全局样式入口
-│   ├── App.tsx             # 主应用组件
-│   ├── App.module.scss     # 主应用样式
-│   ├── index.tsx           # 应用入口
-│   └── vite-env.d.ts        # Vite 类型声明
-├── .cursorrules            # Cursor AI 开发规范
-├── tsconfig.json           # TypeScript 配置
-├── package.json            # 项目依赖配置
-├── todo.md                 # 开发任务清单
-└── README.md               # 项目说明文档
+│   │   ├── Projects/
+│   │   ├── ProjectDetail/
+│   │   ├── About/
+│   │   ├── Search/
+│   │   └── NotFound/
+│   ├── hooks/             # useMockData、usePagination、useMediaQuery
+│   ├── lib/               # date、router（getArticleDetailPath、getProjectDetailPath）
+│   ├── utils/router.tsx   # 路由配置
+│   ├── types/
+│   ├── constants/         # routes、navigation
+│   ├── services/
+│   ├── store/
+│   ├── styles/            # _variables、_mixins、index.scss
+│   ├── App.tsx
+│   ├── index.tsx
+│   └── vite-env.d.ts
+├── .cursorrules
+├── tsconfig.json
+├── package.json
+├── TODO.md
+└── README.md
 ```
 
 > 📖 详细的项目结构说明请查看 [ARCHITECTURE.md](./ARCHITECTURE.md)
@@ -294,37 +298,38 @@ import { Article } from '../../types';
 
 ## 📊 开发进度
 
-> 📅 **最后更新**：2026-01-28
+> 📅 **最后更新**：2026-01-29
 
 ### 第一阶段：项目基础搭建 ✅
 
-- [x] 安装核心依赖（React Router、Ant Design、Zustand、Axios 等）
+- [x] 安装核心依赖（React Router、Zustand、Axios、Lucide React 等）
 - [x] 项目结构规划（创建所有必要目录）
 - [x] TypeScript 配置和类型定义
 - [x] SCSS 样式系统（变量、混合宏）
-- [x] 路由配置（10个页面路由）
-- [x] 模块化重构（每个页面独立文件夹）
+- [x] 路由配置（首页、文章列表/详情、项目列表/详情、关于、搜索、404）
+- [x] 模块化页面（每页独立文件夹 + module.scss）
 
 **完成度**：100% ✅
 
-### 第二阶段：核心页面开发 🚧
+### 第二阶段：核心页面开发 ✅
 
-- [x] 布局组件（Header、Footer、Sidebar）
-- [x] 首页开发（轮播图、文章列表占位）
-- [ ] 文章列表页与 Mock 联调
-- [ ] 文章详情页（Markdown 渲染、代码高亮）
-- [ ] 分类和标签页面完善
-- [ ] 搜索功能
-- [ ] 关于页面完善
+- [x] 布局组件（Header、Footer、Sidebar、RouteWrapper）
+- [x] 首页（轮播图、文章列表 + 分页）
+- [x] 文章列表页（Mock 联调、分页、点击进入详情）
+- [x] 文章详情页（按 id 从 mock 展示）
+- [x] 项目列表页（Projects、Mock、分页、ProjectCard）
+- [x] 项目详情页（按 id 展示）
+- [x] 侧栏仅在文章/项目列表页展示；分类/标签点击为筛选占位
+- [x] 关于页、搜索页、404 页
 
-**完成度**：约 30% ⏳
+**完成度**：100% ✅
 
-### 第三阶段：功能模块开发 📋
+### 第三阶段：功能模块开发 🚧
 
-- [ ] 数据管理（状态管理、API 服务）
-- [ ] 文章管理功能
-- [ ] 分类和标签管理
-- [ ] 用户交互功能（点赞、收藏）
+- [ ] 侧栏分类/标签筛选与主内容区数据联调
+- [ ] 数据管理（API 服务替换 Mock）
+- [ ] 搜索功能完善
+- [ ] 用户交互（点赞、收藏等，可选）
 
 **完成度**：0% 📋
 
@@ -352,28 +357,42 @@ import { Article } from '../../types';
 
 ## 📝 更新日志
 
+### [0.2.0] - 2026-01-29
+
+#### ✨ 新增
+
+- 顶部导航四项：首页、文章、项目、关于（移除分类、标签独立页）
+- 文章列表页与详情页（Mock 数据、分页、按 id 展示）
+- 项目列表页（`pages/Projects`）与项目详情页（Mock、ProjectCard）
+- 侧栏仅在文章/项目列表页展示；分类/标签点击为筛选占位（不跳转）
+- Logo 枫叶图标（iconfont + icon-fengye.svg 作为站点图标）
+- useMediaQuery、usePagination 等 Hooks；`public/mock/projects.json`
+
+#### 🔧 优化
+
+- 整页最小宽度 320px；Footer 三栏等分布局
+- 移除分类/标签路由页与相关常量、类型（CategoryParams、TagParams）
+- 移除 public 下未使用的 favicon.ico、logo192/512、manifest.json
+
+#### 📚 文档
+
+- 见 CHANGELOG.md 完整版本历史
+
 ### [0.1.0] - 2026-01-28
 
 #### ✨ 新增
 
 - 项目初始化和基础搭建
 - TypeScript + SCSS Modules 配置
-- 完整的项目目录结构
-- 10个基础页面路由配置
+- 完整项目目录结构
 - 全局样式系统（变量、混合宏）
 - 类型定义系统
 - 路由配置和常量管理
 
 #### 🔧 优化
 
-- 模块化目录结构重构
+- 模块化目录结构
 - 代码规范和文档完善
-
-#### 📚 文档
-
-- 项目结构文档（PROJECT_STRUCTURE.md）
-- 结构验证报告（STRUCTURE_VALIDATION.md）
-- 完整的 README.md
 
 ---
 

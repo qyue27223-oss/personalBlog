@@ -71,7 +71,7 @@ npm run dev
 yarn dev
 ```
 
-应用将在 [http://localhost:5173](http://localhost:5173) 启动（Vite 默认端口）。
+应用将在 [http://localhost:3000](http://localhost:3000) 启动（端口在 `vite.config.ts` 中配置为 3000）。
 
 ### 4. 构建生产版本
 
@@ -664,4 +664,4 @@ A:
 
 ---
 
-**最后更新**：2026-01-29
+**最后更新**：2026-01-30

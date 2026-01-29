@@ -94,10 +94,10 @@
 ```
 person-blog/
 ├── public/                      # 静态资源目录
-│   ├── favicon.ico              # 网站图标
-│   ├── index.html               # HTML 模板
+│   ├── icon-fengye.svg          # 站点图标（枫叶）
 │   ├── mock/                    # Mock 数据
 │   │   ├── articles.json
+│   │   ├── projects.json
 │   │   ├── carousel.json
 │   │   ├── categories.json
 │   │   └── tags.json
@@ -106,25 +106,24 @@ person-blog/
 ├── src/                         # 源代码目录
 │   ├── components/              # 组件目录
 │   │   ├── Layout/             # 布局组件
-│   │   │   ├── Header/         # 头部组件
-│   │   │   ├── Footer/         # 底部组件
-│   │   │   ├── Sidebar/        # 侧边栏组件
-│   │   │   ├── RouteWrapper.tsx # 路由包装器
+│   │   │   ├── Header/         # 头部（Logo 枫叶 + 导航四项 + 移动端菜单）
+│   │   │   ├── Footer/         # 底部（关于博客、快速链接、关注我）
+│   │   │   ├── Sidebar/        # 侧栏（仅文章/项目列表页展示；分类、标签为筛选占位）
+│   │   │   ├── RouteWrapper.tsx # 路由包装器（按路由控制侧栏显示）
 │   │   │   └── index.tsx       # 布局主组件
 │   │   └── ui/                 # 基础 UI 组件
-│   │       ├── ArticleCard/    # 文章卡片组件
-│   │       ├── Empty/          # 空状态组件
-│   │       ├── Loading/        # 加载组件
-│   │       └── Pagination/     # 分页组件
+│   │       ├── ArticleCard/    # 文章卡片
+│   │       ├── ProjectCard/    # 项目卡片
+│   │       ├── Empty/          # 空状态
+│   │       ├── Loading/        # 加载
+│   │       └── Pagination/     # 分页
 │   │
 │   ├── pages/                  # 页面组件（路由页面）
 │   │   ├── Home/               # 首页
 │   │   ├── Articles/           # 文章列表页
 │   │   ├── ArticleDetail/      # 文章详情页
-│   │   ├── Categories/         # 分类列表页
-│   │   ├── CategoryDetail/     # 分类详情页
-│   │   ├── Tags/               # 标签列表页
-│   │   ├── TagDetail/          # 标签详情页
+│   │   ├── Projects/           # 项目列表页
+│   │   ├── ProjectDetail/      # 项目详情页
 │   │   ├── Search/             # 搜索页
 │   │   ├── About/              # 关于页
 │   │   └── NotFound/           # 404 页面
@@ -132,6 +131,7 @@ person-blog/
 │   ├── hooks/                  # 自定义 Hooks
 │   │   ├── useMockData.ts      # Mock 数据 Hook
 │   │   ├── usePagination.ts    # 分页 Hook
+│   │   ├── useMediaQuery.ts    # 媒体查询 Hook
 │   │   └── index.ts            # Hooks 导出
 │   │
 │   ├── lib/                    # 工具函数库
@@ -359,8 +359,12 @@ export const router = createBrowserRouter([
 export const ROUTES = {
   HOME: '/',
   ARTICLES: '/articles',
-  ARTICLE_DETAIL: '/articles/:id',
-  // ...
+  ARTICLE_DETAIL: '/article/:id',
+  PROJECT: '/project',
+  PROJECT_DETAIL: '/project/:id',
+  ABOUT: '/about',
+  SEARCH: '/search',
+  NOT_FOUND: '*'
 };
 ```
 
@@ -370,6 +374,9 @@ export const ROUTES = {
 
 ```typescript
 export interface ArticleParams extends Record<string, string | undefined> {
+  id: string;
+}
+export interface ProjectParams extends Record<string, string | undefined> {
   id: string;
 }
 ```
@@ -473,4 +480,4 @@ npm run preview  # 预览生产构建
 
 ---
 
-**最后更新**：2026-01-29
+**最后更新**：2026-01-30
