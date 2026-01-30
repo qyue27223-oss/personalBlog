@@ -162,7 +162,12 @@ const Home: React.FC = () => {
 
         {/* 全部项目：分页逻辑与全部文章一致 */}
         <section ref={projectsSectionRef} className={styles.projectsSection}>
-          <h2 className={styles.sectionTitle}>全部项目</h2>
+          <div className={styles.sectionTitleRow}>
+            <div className={styles.iconContainer}>
+              <i className={`iconfont icon-xiangmu ${styles.iconSection}`} aria-hidden />
+            </div>
+            <h2 className={styles.sectionTitle}>全部项目</h2>
+          </div>
           {projectsLoading ? (
             <Loading />
           ) : projects.length > 0 ? (
@@ -185,7 +190,12 @@ const Home: React.FC = () => {
 
         {/* 文章列表 */}
         <section ref={articlesSectionRef} className={styles.articlesSection}>
-          <h2 className={styles.sectionTitle}>全部文章</h2>
+          <div className={styles.sectionTitleRow}>
+            <div className={styles.iconContainer}>
+              <i className={`iconfont icon-wenzhang ${styles.iconSection}`} aria-hidden />
+            </div>
+            <h2 className={styles.sectionTitle}>全部文章</h2>
+          </div>
 
           {loading ? (
             <Loading />

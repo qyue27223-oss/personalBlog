@@ -20,7 +20,12 @@ const Articles: React.FC = () => {
   return (
     <div className={styles.articlesPage}>
       <section className={styles.articlesSection}>
-        <h1 className={styles.sectionTitle}>文章列表</h1>
+        <div className={styles.sectionTitleRow}>
+          <div className={styles.iconContainer}>
+            <i className={`iconfont icon-wenzhang ${styles.iconSection}`} aria-hidden />
+          </div>
+          <h1 className={styles.sectionTitle}>文章列表</h1>
+        </div>
 
         {loading ? (
           <Loading />

@@ -21,7 +21,12 @@ const Projects: React.FC = () => {
   return (
     <div className={styles.projectsPage}>
       <section className={styles.projectsSection}>
-        <h1 className={styles.sectionTitle}>项目列表</h1>
+        <div className={styles.sectionTitleRow}>
+          <div className={styles.iconContainer}>
+            <i className={`iconfont icon-xiangmu ${styles.iconSection}`} aria-hidden />
+          </div>
+          <h1 className={styles.sectionTitle}>项目列表</h1>
+        </div>
 
         {loading ? (
           <Loading />

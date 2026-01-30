@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "13638695",
+      "name": "工作",
+      "font_class": "gongzuo",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "26841825",
+      "name": "项目",
+      "font_class": "xiangmu",
+      "unicode": "ea3f",
+      "unicode_decimal": 59967
+    },
+    {
       "icon_id": "33053610",
       "name": "枫叶-copy",
       "font_class": "fengye",
@@ -32,13 +46,6 @@
       "font_class": "wenzhang",
       "unicode": "e624",
       "unicode_decimal": 58916
-    },
-    {
-      "icon_id": "4320340",
-      "name": "关于",
-      "font_class": "guanyu",
-      "unicode": "e655",
-      "unicode_decimal": 58965
     },
     {
       "icon_id": "6170596",

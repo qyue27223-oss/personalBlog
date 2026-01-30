@@ -166,6 +166,35 @@
   scroll-margin-top: 80px; // 约等于 Header 高度 + 间距
 }
 
+// 区块标题行：图标 + 标题，下划线覆盖整行（图标+文字），参考图一效果
+.sectionTitleRow {
+  display: flex;
+  align-items: baseline;
+  gap: $spacing-sm;
+  font-size: $font-size-xxl;
+  padding-bottom: $spacing-md;
+  border-bottom: 3px solid $primary-color;
+
+  @include dark-mode {
+    border-bottom-color: $primary-hover;
+  }
+}
+
+.iconContainer {
+  @include flex-center;
+  line-height: 1;
+}
+
+// 区块标题前图标：与标题同字号、蓝色系
+.iconSection {
+  font-size: 1em;
+  color: $primary-color;
+
+  @include dark-mode {
+    color: $primary-hover;
+  }
+}
+
 .projectsGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -186,17 +215,14 @@
 }
 
 .sectionTitle {
-  font-size: $font-size-xxl;
+  font-size: 1em;
   font-weight: $font-weight-bold;
   color: $text-primary;
   margin: 0;
-  padding-bottom: $spacing-md;
-  border-bottom: 3px solid $primary-color;
   display: inline-block;
 
   @include dark-mode {
     color: $dark-text-primary;
-    border-bottom-color: $primary-hover;
   }
 }
 

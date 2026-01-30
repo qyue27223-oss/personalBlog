@@ -45,9 +45,14 @@ const About: React.FC = () => {
 
       {/* 第二部分：工作经历 */}
       <section id="experience" className={styles.sectionExperience}>
-        <h2 className={styles.sectionTitle}>
-          {experienceLoading ? '工作经历' : experienceData?.title ?? '工作经历'}
-        </h2>
+        <div className={styles.sectionTitleRow}>
+          <div className={styles.iconContainer}>
+            <i className={`iconfont icon-gongzuo ${styles.iconSection}`} aria-hidden />
+          </div>
+          <h2 className={styles.sectionTitle}>
+            {experienceLoading ? '工作经历' : experienceData?.title ?? '工作经历'}
+          </h2>
+        </div>
 
         {experienceLoading && !experienceData ? (
           <Loading />
