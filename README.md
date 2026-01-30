@@ -47,7 +47,7 @@
 - [x] 侧栏仅在「文章」「项目」列表页展示；分类/标签点击为筛选占位（不跳转）
 - [x] 样式系统（全局变量、混合宏、body 最小宽度 320px）
 - [x] 类型定义系统（Article、Project、Category、Tag 等）
-- [x] Mock 数据：`public/mock/`（articles、projects、carousel、categories、tags）
+- [x] Mock 数据：`public/mock/`（about、experience、articles、projects、carousel、categories、tags）
 - [x] 文章/项目列表分页、详情页从 mock 按 id 展示
 - [x] useMockData、usePagination、useMediaQuery 等 Hooks
 
@@ -105,6 +105,8 @@ person-blog/
 ├── public/                 # 静态资源
 │   ├── icon-fengye.svg    # 站点图标（枫叶）
 │   ├── mock/              # Mock 数据
+│   │   ├── about.json     # 关于页个人信息、详细描述
+│   │   ├── experience.json # 关于页工作经历、简历下载链接
 │   │   ├── articles.json
 │   │   ├── projects.json
 │   │   ├── carousel.json
@@ -320,7 +322,7 @@ import { Article } from '../../types';
 - [x] 项目列表页（Projects、Mock、分页、ProjectCard）
 - [x] 项目详情页（按 id 展示）
 - [x] 侧栏仅在文章/项目列表页展示；分类/标签点击为筛选占位
-- [x] 关于页、搜索页、404 页
+- [x] 关于页（个人信息 + 详细描述、工作经历、简历下载占位；Mock：about.json、experience.json）、搜索页、404 页
 
 **完成度**：100% ✅
 

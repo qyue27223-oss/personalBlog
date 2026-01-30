@@ -13,10 +13,11 @@
 }
 
 .widget {
-  background: $background-color;
-  border-radius: $border-radius-md;
+  background: $surface-color;
+  border-radius: $border-radius-lg;
   padding: $spacing-lg;
   box-shadow: $shadow-base;
+  border: 1px solid $border-color-light;
   @include transition();
 
   &:hover {
@@ -25,6 +26,7 @@
 
   @include dark-mode {
     background: $dark-bg-secondary;
+    border-color: $dark-border-color;
   }
 }
 
@@ -34,11 +36,12 @@
   color: $text-primary;
   margin: 0 0 $spacing-md 0;
   padding-bottom: $spacing-md;
-  border-bottom: 2px solid $border-color-light;
+  border-bottom: 3px solid $primary-color;
+  border-radius: 0;
 
   @include dark-mode {
     color: $dark-text-primary;
-    border-bottom-color: $dark-border-color;
+    border-bottom-color: $primary-color;
   }
 }
 
@@ -63,7 +66,7 @@
   color: $text-secondary;
   text-decoration: none;
   padding: $spacing-sm $spacing-md;
-  border-radius: $border-radius-base;
+  border-radius: $border-radius-md;
   border: none;
   background: none;
   cursor: pointer;
@@ -73,7 +76,7 @@
 
   &:hover {
     color: $primary-color;
-    background: rgba($primary-color, 0.1);
+    background: $primary-light;
   }
 
   @include dark-mode {
@@ -81,7 +84,7 @@
 
     &:hover {
       color: $primary-hover;
-      background: rgba($primary-color, 0.2);
+      background: $primary-light-hover;
     }
   }
 }
@@ -110,7 +113,7 @@
 .tag {
   display: inline-block;
   padding: $spacing-xs $spacing-md;
-  background: rgba($primary-color, 0.1);
+  background: $primary-light;
   color: $primary-color;
   border-radius: $border-radius-full;
   font-size: $font-size-sm;
@@ -124,10 +127,11 @@
     background: $primary-color;
     color: $background-color;
     transform: translateY(-2px);
+    box-shadow: $shadow-sm;
   }
 
   @include dark-mode {
-    background: rgba($primary-color, 0.2);
+    background: $primary-light-hover;
     color: $primary-hover;
 
     &:hover {

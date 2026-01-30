@@ -2,21 +2,23 @@
 @use '@/styles/mixins' as *;
 
 .footer {
-  background: $background-color-light;
+  background: $surface-color;
   border-top: 1px solid $border-color-light;
   margin-top: auto;
+  box-shadow: 0 -1px 0 0 $border-color-light;
   @include transition();
 
   @include dark-mode {
     background: $dark-bg-secondary;
     border-top-color: $dark-border-color;
+    box-shadow: 0 -1px 0 0 $dark-border-color;
   }
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: $spacing-xxl $spacing-lg $spacing-lg;
+  padding: $spacing-xxl $spacing-xl $spacing-xl;
 
   @include respond-below('sm') {
     padding: $spacing-xl $spacing-md $spacing-md;
@@ -88,12 +90,12 @@
   color: $text-secondary;
   text-decoration: none;
   font-size: $font-size-base;
-  border-radius: $border-radius-base;
+  border-radius: $border-radius-md;
   @include transition();
 
   &:hover {
     color: $primary-color;
-    background: rgba($primary-color, 0.06);
+    background: $primary-light;
   }
 
   @include dark-mode {
@@ -101,7 +103,7 @@
 
     &:hover {
       color: $primary-hover;
-      background: rgba($primary-color, 0.12);
+      background: $primary-light-hover;
     }
   }
 }
@@ -128,10 +130,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: $border-radius-full;
-  background: rgba($primary-color, 0.1);
+  width: 42px;
+  height: 42px;
+  border-radius: $border-radius-lg;
+  background: $primary-light;
   color: $primary-color;
   text-decoration: none;
   @include transition();
@@ -140,10 +142,11 @@
     background: $primary-color;
     color: $background-color;
     transform: translateY(-2px);
+    box-shadow: $shadow-base;
   }
 
   @include dark-mode {
-    background: rgba($primary-color, 0.2);
+    background: $primary-light-hover;
     color: $primary-hover;
 
     &:hover {
@@ -154,7 +157,8 @@
 }
 
 .copyright {
-  padding-top: $spacing-lg;
+  padding-top: $spacing-xl;
+  margin-top: $spacing-md;
   border-top: 1px solid $border-color-light;
   text-align: center;
 
@@ -165,10 +169,10 @@
 
 .copyrightText {
   font-size: $font-size-sm;
-  color: $text-secondary;
+  color: $text-tertiary;
   margin: 0;
 
   @include dark-mode {
-    color: $dark-text-secondary;
+    color: $dark-text-tertiary;
   }
 }

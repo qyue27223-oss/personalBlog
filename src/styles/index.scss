@@ -15,14 +15,14 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-// 整页横向最小宽度，避免布局过窄
+// 整页横向最小宽度，避免布局过窄；背景略偏灰以区分内容区
 body {
   min-width: 320px;
   font-family: $font-family-base;
   font-size: $font-size-base;
   line-height: $line-height-base;
   color: $text-primary;
-  background-color: $background-color;
+  background-color: $page-background;
   @include transition(background-color);
 }
 
@@ -73,6 +73,6 @@ img {
 
   code,
   pre {
-    background-color: $dark-bg-secondary;
+    background-color: $dark-bg-elevated;
   }
 }

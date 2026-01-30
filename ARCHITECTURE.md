@@ -96,7 +96,9 @@ person-blog/
 ├── public/                      # 静态资源目录
 │   ├── icon-fengye.svg          # 站点图标（枫叶）
 │   ├── mock/                    # Mock 数据
+│   │   ├── about.json           # 关于页个人信息、详细描述
 │   │   ├── articles.json
+│   │   ├── experience.json      # 关于页工作经历、简历下载链接
 │   │   ├── projects.json
 │   │   ├── carousel.json
 │   │   ├── categories.json

@@ -1,0 +1,38 @@
+{
+  "title": "工作经历",
+  "experiences": [
+    {
+      "duration": "2024 - 至今",
+      "position": "高级前端工程师",
+      "company": "某科技公司",
+      "description": "负责构建和维护支持前端的关键组件，与跨职能团队密切合作，包括开发人员、设计师和产品经理，以实施和倡导网页无障碍最佳实践。",
+      "skills": ["JavaScript", "TypeScript", "React", "Next.js", "Storybook"],
+      "link": "#"
+    },
+    {
+      "duration": "2022 - 2024",
+      "position": "前端工程师",
+      "company": "某互联网公司",
+      "description": "参与核心产品的前端架构设计与实现，推动组件化与工程化建设，提升团队开发效率与代码质量。",
+      "skills": ["React", "Vue.js", "Node.js", "GraphQL", "AWS"],
+      "link": "#"
+    },
+    {
+      "duration": "2020 - 2022",
+      "position": "全栈开发工程师",
+      "company": "某创业公司",
+      "description": "负责从需求到上线的全流程开发，主导前端技术选型与后端接口设计，保障产品稳定交付。",
+      "skills": ["React", "Python", "PostgreSQL", "Docker", "Kubernetes"],
+      "link": "#"
+    },
+    {
+      "duration": "2018 - 2020",
+      "position": "前端开发",
+      "company": "某数字工作室",
+      "description": "参与多个企业官网与营销活动页面的开发，熟练使用 CMS 与模板引擎快速交付项目。",
+      "skills": ["HTML", "CSS", "JavaScript", "WordPress", "PHP"],
+      "link": "#"
+    }
+  ],
+  "resumeDownloadUrl": "#"
+}

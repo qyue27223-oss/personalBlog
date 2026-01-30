@@ -111,6 +111,40 @@
 
 ---
 
+### [0.1.4] - 2026-01-30
+
+#### ✨ 新增
+
+- **关于页**：拆分为两部分——（1）个人信息区：姓名、职位、个人介绍、详细描述（左右两栏布局）；（2）工作经历区：标题、经历列表（时间/职位·公司/描述/技术栈）、底部「查看完整简历」下载链接占位
+- **Mock 数据**：`public/mock/about.json`（personalInfo、detailedDescription）、`public/mock/experience.json`（title、experiences、resumeDownloadUrl）
+- **类型**：`AboutData`、`AboutPersonalInfo`、`ExperienceData`、`ExperienceItem`
+
+#### 📚 文档
+
+- 更新 TODO.md、ARCHITECTURE.md 中关于页与 Mock 数据说明
+
+---
+
+### [0.1.5] - 2026-01-30
+
+#### 🗑️ 移除
+
+- **关于页**：移除页内导航（关于我/工作经历/精选项目）——删除 `about.json` 中 `navigationLinks`、类型 `AboutNavLink`、左侧导航模板与 `.navLinks`/`.navItem` 样式
+
+---
+
+### [0.1.6] - 2026-01-30
+
+#### 🎨 样式与视觉优化
+
+- **全局变量**：主色微调（#1677ff）、新增 `$primary-light`/`$primary-light-hover`、`$text-tertiary`、`$page-background`、`$dark-bg-elevated`/`$dark-text-tertiary`；阴影分层（`$shadow-hover`）、边框与表面色统一
+- **布局与层次**：整页与主内容区使用 `$page-background` 区分层级；Layout 容器 padding 与主内容区统一
+- **Header/Footer/Sidebar**：表面色与边框、圆角（`$border-radius-md`）、导航/链接 hover 使用 `$primary-light`；侧栏 widget 标题下划线改为主色 3px；Footer 社交图标圆角与 hover 阴影
+- **卡片与 UI**：ArticleCard/ProjectCard 增加边框、hover 使用 `$shadow-hover`、分类/标签/技术栈使用统一主色浅底；Pagination 圆角与 hover 背景；Empty/Loading 层次与留白
+- **页面**：Home/Articles/Projects 区块标题改为主色下划线（3px）；About 个人信息与工作经历区改为卡片式（背景+阴影+圆角）；ArticleDetail/ProjectDetail 封面圆角与阴影；Search/NotFound 输入框与按钮圆角及暗色适配
+
+---
+
 ### [未发布]
 
 #### 计划中

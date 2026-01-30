@@ -2,17 +2,239 @@
 @use '@/styles/mixins' as *;
 
 .aboutPage {
-  padding: $spacing-xl;
+  padding: $spacing-xl $spacing-lg;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: $spacing-xxl;
+}
 
-  .title {
-    font-size: $font-size-title;
+// ========== 第一部分：个人信息与详细描述 ==========
+.sectionIntro {
+  margin-bottom: $spacing-xxl;
+  padding: $spacing-xl;
+  background: $surface-color;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-base;
+  border: 1px solid $border-color-light;
+
+  @include dark-mode {
+    background: $dark-bg-secondary;
+    border-color: $dark-border-color;
+  }
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xxl;
+  align-items: start;
+
+  @include respond-below('sm') {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.introLeft {
+  .name {
+    font-size: $font-size-xxl;
     font-weight: $font-weight-bold;
     color: $text-primary;
-    margin-bottom: $spacing-md;
+    margin: 0 0 $spacing-sm;
+    line-height: $line-height-tight;
+    letter-spacing: -0.02em;
+
+    @include dark-mode {
+      color: $dark-text-primary;
+    }
   }
 
-  .description {
+  .position {
+    font-size: $font-size-lg;
+    color: $primary-color;
+    margin: 0 0 $spacing-md;
+    font-weight: $font-weight-semibold;
+
+    @include dark-mode {
+      color: $primary-hover;
+    }
+  }
+
+  .shortIntro {
     font-size: $font-size-base;
     color: $text-secondary;
+    line-height: $line-height-base;
+    margin: 0;
+
+    @include dark-mode {
+      color: $dark-text-secondary;
+    }
+  }
+}
+
+.introRight {
+  .detailParagraph {
+    font-size: $font-size-base;
+    color: $text-secondary;
+    line-height: $line-height-loose;
+    margin: 0 0 $spacing-md;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include dark-mode {
+      color: $dark-text-secondary;
+    }
+  }
+}
+
+// ========== 第二部分：工作经历 ==========
+.sectionExperience {
+  padding: $spacing-xl;
+  background: $surface-color;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-base;
+  border: 1px solid $border-color-light;
+
+  @include dark-mode {
+    background: $dark-bg-secondary;
+    border-color: $dark-border-color;
+  }
+}
+
+.sectionTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+  margin: 0 0 $spacing-lg;
+  padding-bottom: $spacing-md;
+  border-bottom: 3px solid $primary-color;
+  display: inline-block;
+
+  @include dark-mode {
+    color: $dark-text-primary;
+    border-bottom-color: $primary-color;
+  }
+}
+
+.experienceList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.experienceItem {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: $spacing-lg;
+  padding-bottom: $spacing-xl;
+  border-bottom: 1px solid $border-color-light;
+
+  &:last-of-type {
+    border-bottom: none;
+    padding-bottom: $spacing-lg;
+  }
+
+  @include respond-below('sm') {
+    grid-template-columns: 1fr;
+    gap: $spacing-sm;
+  }
+}
+
+.duration {
+  font-size: $font-size-sm;
+  color: $text-tertiary;
+  padding-top: 2px;
+  font-weight: $font-weight-medium;
+
+  @include dark-mode {
+    color: $dark-text-tertiary;
+  }
+}
+
+.experienceContent {
+  .positionCompany {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    text-decoration: none;
+    margin-bottom: $spacing-sm;
+    transition: $transition-fast;
+
+    &:hover {
+      color: $primary-color;
+    }
+
+    @include dark-mode {
+      color: $dark-text-primary;
+
+      &:hover {
+        color: $primary-hover;
+      }
+    }
+  }
+
+  .externalIcon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+  }
+
+  .experienceDesc {
+    font-size: $font-size-base;
+    color: $text-secondary;
+    line-height: $line-height-base;
+    margin: 0 0 $spacing-md;
+
+    @include dark-mode {
+      color: $dark-text-secondary;
+    }
+  }
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skillTag {
+  font-size: $font-size-xs;
+  padding: $spacing-xs $spacing-sm;
+  background: $primary-light;
+  color: $primary-color;
+  border-radius: $border-radius-full;
+  font-weight: $font-weight-medium;
+
+  @include dark-mode {
+    background: $primary-light-hover;
+    color: $primary-hover;
+  }
+}
+
+.resumeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: $font-size-base;
+  color: $primary-color;
+  text-decoration: none;
+  margin-top: $spacing-md;
+  transition: $transition-fast;
+
+  .externalIcon {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover {
+    color: $primary-hover;
   }
 }

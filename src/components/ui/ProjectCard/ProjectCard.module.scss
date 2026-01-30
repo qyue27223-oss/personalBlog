@@ -1,39 +1,67 @@
 @use '@/styles/variables' as *;
 @use '@/styles/mixins' as *;
 
-// 项目卡片：图二风格 - 深色圆角卡片，标题行带 GitHub/外链图标，描述 + 技术标签
+// 项目卡片：顶部横幅（背景图/渐变）+ 下方内容区
 .card {
-  background: $background-color;
+  background: $surface-color;
   border-radius: $border-radius-lg;
   overflow: hidden;
   box-shadow: $shadow-base;
+  border: 1px solid $border-color-light;
   @include transition();
   @include flex-column;
 
   &:hover {
-    box-shadow: $shadow-md;
-    transform: translateY(-2px);
+    box-shadow: $shadow-hover;
+    transform: translateY(-3px);
+    border-color: transparent;
   }
 
   @include dark-mode {
     background: $dark-bg-secondary;
+    border-color: $dark-border-color;
+
+    &:hover {
+      border-color: transparent;
+    }
   }
 }
 
-.content {
-  padding: $spacing-lg;
-  @include flex-column;
-  gap: $spacing-md;
-  flex: 1;
+// ========== 顶部横幅：背景图或渐变 ==========
+.banner {
+  position: relative;
+  min-height: 120px;
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: $primary-color; // 无图时的底色
 }
 
-// 标题行：左侧标题，右侧 GitHub + 外链图标
+.bannerOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.35) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+// 有背景图时在 banner 内加一层图片元素，便于 hover 缩放
+.card:has(.banner[style*='backgroundImage']) .bannerOverlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+// 标题行放在横幅底部，叠在遮罩上
 .titleRow {
+  position: relative;
+  z-index: 1;
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   justify-content: space-between;
   gap: $spacing-md;
   min-width: 0;
+  width: 100%;
+  padding: $spacing-lg $spacing-lg $spacing-md;
 }
 
 .title {
@@ -42,27 +70,18 @@
   margin: 0;
   flex: 1;
   min-width: 0;
-
-  @include dark-mode {
-    color: $dark-text-primary;
-  }
+  line-height: $line-height-tight;
 }
 
 .titleLink {
-  color: $text-primary;
+  color: #fff;
   text-decoration: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   @include transition();
 
   &:hover {
-    color: $primary-color;
-  }
-
-  @include dark-mode {
-    color: $dark-text-primary;
-
-    &:hover {
-      color: $primary-hover;
-    }
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -77,21 +96,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $text-secondary;
+  width: 36px;
+  height: 36px;
+  border-radius: $border-radius-md;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
   text-decoration: none;
   @include transition();
 
   &:hover {
-    color: $primary-color;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.25);
   }
+}
 
-  @include dark-mode {
-    color: $dark-text-secondary;
-
-    &:hover {
-      color: $primary-hover;
-    }
-  }
+// ========== 下方内容区 ==========
+.content {
+  padding: $spacing-lg;
+  @include flex-column;
+  gap: $spacing-md;
+  flex: 1;
+  min-height: 0;
 }
 
 .description {
@@ -100,6 +126,8 @@
   line-height: $line-height-base;
   margin: 0;
   @include text-ellipsis-multiline(3);
+  flex: 1;
+  min-height: 0;
 
   @include dark-mode {
     color: $dark-text-secondary;
@@ -112,31 +140,30 @@
   gap: $spacing-sm;
 }
 
-// 药丸状技术标签，与卡片背景略有区分
 .tech {
   display: inline-block;
   padding: $spacing-xs $spacing-sm;
-  background: rgba($text-primary, 0.08);
-  color: $text-primary;
-  border-radius: $border-radius-base;
+  background: $primary-light;
+  color: $primary-color;
+  border-radius: $border-radius-md;
   font-size: $font-size-xs;
   font-weight: $font-weight-medium;
 
   @include dark-mode {
-    background: rgba($dark-text-primary, 0.15);
-    color: $dark-text-secondary;
+    background: $primary-light-hover;
+    color: $primary-hover;
   }
 }
 
-// 底部元信息行：日期、浏览量、点赞 | 阅读更多（图一风格）
 .footerRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: $spacing-md;
   padding-top: $spacing-md;
-  margin-top: $spacing-sm;
+  margin-top: auto;
   border-top: 1px solid $border-color-light;
+  flex-shrink: 0;
 
   @include dark-mode {
     border-top-color: $dark-border-color;
@@ -156,10 +183,10 @@
   align-items: center;
   gap: $spacing-xs;
   font-size: $font-size-sm;
-  color: $text-secondary;
+  color: $text-tertiary;
 
   @include dark-mode {
-    color: $dark-text-secondary;
+    color: $dark-text-tertiary;
   }
 }
 

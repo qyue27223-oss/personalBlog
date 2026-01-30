@@ -13,12 +13,21 @@
     font-weight: $font-weight-bold;
     color: $primary-color;
     margin-bottom: $spacing-md;
+    line-height: 1;
+
+    @include dark-mode {
+      color: $primary-hover;
+    }
   }
 
   .errorMessage {
     font-size: $font-size-lg;
     color: $text-secondary;
     margin-bottom: $spacing-xl;
+
+    @include dark-mode {
+      color: $dark-text-secondary;
+    }
   }
 
   .homeLink {
@@ -26,11 +35,14 @@
     padding: $spacing-sm $spacing-lg;
     background-color: $primary-color;
     color: white;
-    border-radius: $border-radius-base;
+    border-radius: $border-radius-md;
+    font-weight: $font-weight-medium;
     @include transition();
+    box-shadow: $shadow-sm;
 
     &:hover {
       background-color: $primary-hover;
+      box-shadow: $shadow-base;
     }
   }
 }

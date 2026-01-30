@@ -82,3 +82,31 @@ export interface SearchParams {
   tag?: string;
   page?: number;
 }
+
+// 关于页 - 个人信息
+export interface AboutPersonalInfo {
+  name: string;
+  position: string;
+  shortIntroduction: string;
+}
+
+export interface AboutData {
+  personalInfo: AboutPersonalInfo;
+  detailedDescription: string[];
+}
+
+// 关于页 - 工作经历
+export interface ExperienceItem {
+  duration: string;
+  position: string;
+  company: string;
+  description: string;
+  skills: string[];
+  link?: string;
+}
+
+export interface ExperienceData {
+  title: string;
+  experiences: ExperienceItem[];
+  resumeDownloadUrl: string;
+}

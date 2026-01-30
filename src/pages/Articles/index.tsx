@@ -21,7 +21,6 @@ const Articles: React.FC = () => {
     <div className={styles.articlesPage}>
       <section className={styles.articlesSection}>
         <h1 className={styles.sectionTitle}>文章列表</h1>
-        <p className={styles.sectionDescription}>点击文章卡片进入详情页</p>
 
         {loading ? (
           <Loading />

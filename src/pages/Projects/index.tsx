@@ -22,7 +22,6 @@ const Projects: React.FC = () => {
     <div className={styles.projectsPage}>
       <section className={styles.projectsSection}>
         <h1 className={styles.sectionTitle}>项目列表</h1>
-        <p className={styles.sectionDescription}>点击项目卡片进入详情页</p>
 
         {loading ? (
           <Loading />

@@ -2,7 +2,8 @@
 @use '@/styles/mixins' as *;
 
 .projectsPage {
-  padding: $spacing-xl;
+  padding: $spacing-xl $spacing-lg;
+  padding-bottom: $spacing-xxl;
 }
 
 .projectsSection {
@@ -16,21 +17,12 @@
   color: $text-primary;
   margin: 0;
   padding-bottom: $spacing-md;
-  border-bottom: 2px solid $border-color-light;
+  border-bottom: 3px solid $primary-color;
+  display: inline-block;
 
   @include dark-mode {
     color: $dark-text-primary;
-    border-bottom-color: $dark-border-color;
-  }
-}
-
-.sectionDescription {
-  font-size: $font-size-base;
-  color: $text-secondary;
-  margin: 0 0 $spacing-md 0;
-
-  @include dark-mode {
-    color: $dark-text-secondary;
+    border-bottom-color: $primary-color;
   }
 }
 

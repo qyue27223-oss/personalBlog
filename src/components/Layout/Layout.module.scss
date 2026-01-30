@@ -4,7 +4,7 @@
 .layout {
   min-height: 100vh;
   @include flex-column;
-  background: $background-color-light;
+  background: $page-background;
 
   @include dark-mode {
     background: $dark-bg-primary;
@@ -19,10 +19,10 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: $spacing-lg;
+  padding: $spacing-xl $spacing-lg;
 
   @include respond-below('sm') {
-    padding: $spacing-md;
+    padding: $spacing-lg $spacing-md;
   }
 }
 

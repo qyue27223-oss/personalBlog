@@ -2,7 +2,7 @@
 @use '@/styles/mixins' as *;
 
 .header {
-  background: $background-color;
+  background: $surface-color;
   border-bottom: 1px solid $border-color-light;
   box-shadow: $shadow-sm;
   position: sticky;
@@ -11,20 +11,22 @@
   @include transition();
 
   @include dark-mode {
-    background: $dark-bg-primary;
+    background: $dark-bg-secondary;
     border-bottom-color: $dark-border-color;
+    box-shadow: 0 1px 0 0 $dark-border-color;
   }
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 $spacing-lg;
+  padding: 0 $spacing-xl;
   @include flex-between;
-  height: 64px;
+  height: 68px;
 
   @include respond-below('sm') {
     padding: 0 $spacing-md;
+    height: 60px;
   }
 }
 
@@ -88,12 +90,12 @@
   font-size: $font-size-base;
   font-weight: $font-weight-medium;
   padding: $spacing-sm $spacing-md;
-  border-radius: $border-radius-base;
+  border-radius: $border-radius-md;
   @include transition();
 
   &:hover {
     color: $primary-color;
-    background: rgba($primary-color, 0.1);
+    background: $primary-light;
   }
 
   @include dark-mode {
@@ -101,18 +103,18 @@
 
     &:hover {
       color: $primary-hover;
-      background: rgba($primary-color, 0.2);
+      background: $primary-light-hover;
     }
   }
 }
 
 .navItemActive {
   color: $primary-color;
-  background: rgba($primary-color, 0.1);
+  background: $primary-light;
 
   @include dark-mode {
     color: $primary-hover;
-    background: rgba($primary-color, 0.2);
+    background: $primary-light-hover;
   }
 }
 
@@ -146,7 +148,7 @@
 .mobileNav {
   display: none;
   flex-direction: column;
-  padding: $spacing-md $spacing-lg;
+  padding: $spacing-md $spacing-xl;
   border-top: 1px solid $border-color-light;
   background: $background-color-light;
   animation: slideDown 0.3s ease-out;
@@ -156,7 +158,7 @@
   }
 
   @include dark-mode {
-    background: $dark-bg-secondary;
+    background: $dark-bg-elevated;
     border-top-color: $dark-border-color;
   }
 }
@@ -167,12 +169,12 @@
   font-size: $font-size-base;
   font-weight: $font-weight-medium;
   padding: $spacing-md;
-  border-radius: $border-radius-base;
+  border-radius: $border-radius-md;
   @include transition();
 
   &:hover {
     color: $primary-color;
-    background: rgba($primary-color, 0.1);
+    background: $primary-light;
   }
 
   @include dark-mode {
@@ -180,18 +182,18 @@
 
     &:hover {
       color: $primary-hover;
-      background: rgba($primary-color, 0.2);
+      background: $primary-light-hover;
     }
   }
 }
 
 .mobileNavItemActive {
   color: $primary-color;
-  background: rgba($primary-color, 0.1);
+  background: $primary-light;
 
   @include dark-mode {
     color: $primary-hover;
-    background: rgba($primary-color, 0.2);
+    background: $primary-light-hover;
   }
 }
 

@@ -2,20 +2,27 @@
 @use '@/styles/mixins' as *;
 
 .card {
-  background: $background-color;
-  border-radius: $border-radius-md;
+  background: $surface-color;
+  border-radius: $border-radius-lg;
   overflow: hidden;
   box-shadow: $shadow-base;
+  border: 1px solid $border-color-light;
   @include transition();
   @include flex-column;
 
   &:hover {
-    box-shadow: $shadow-md;
+    box-shadow: $shadow-hover;
     transform: translateY(-4px);
+    border-color: transparent;
   }
 
   @include dark-mode {
     background: $dark-bg-secondary;
+    border-color: $dark-border-color;
+
+    &:hover {
+      border-color: transparent;
+    }
   }
 }
 
@@ -46,19 +53,23 @@
   @include flex-column;
   gap: $spacing-md;
   flex: 1;
+  min-height: 0;
 }
 
 .meta {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: $spacing-sm;
   align-items: center;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .category {
   display: inline-block;
+  flex-shrink: 0;
   padding: $spacing-xs $spacing-md;
-  background: rgba($primary-color, 0.1);
+  background: $primary-light;
   color: $primary-color;
   border-radius: $border-radius-full;
   font-size: $font-size-sm;
@@ -72,7 +83,7 @@
   }
 
   @include dark-mode {
-    background: rgba($primary-color, 0.2);
+    background: $primary-light-hover;
     color: $primary-hover;
 
     &:hover {
@@ -84,33 +95,40 @@
 
 .tags {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: $spacing-xs;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  @include custom-scrollbar(4px, transparent, rgba(0, 0, 0, 0.5));
+  -webkit-overflow-scrolling: touch;
 }
 
 .tag {
   display: inline-flex;
   align-items: center;
   gap: $spacing-xs;
+  flex-shrink: 0;
   padding: $spacing-xs $spacing-sm;
-  background: rgba($text-secondary, 0.1);
+  background: $border-color-light;
   color: $text-secondary;
-  border-radius: $border-radius-base;
+  border-radius: $border-radius-md;
   font-size: $font-size-xs;
   text-decoration: none;
   @include transition();
+  white-space: nowrap;
 
   &:hover {
-    background: rgba($primary-color, 0.1);
+    background: $primary-light;
     color: $primary-color;
   }
 
   @include dark-mode {
-    background: rgba($dark-text-secondary, 0.2);
+    background: $dark-bg-elevated;
     color: $dark-text-secondary;
 
     &:hover {
-      background: rgba($primary-color, 0.2);
+      background: $primary-light-hover;
       color: $primary-hover;
     }
   }
@@ -157,11 +175,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: $spacing-md;
+  flex-wrap: nowrap;
+  gap: $spacing-sm;
   margin-top: auto;
   padding-top: $spacing-md;
   border-top: 1px solid $border-color-light;
+  min-width: 0;
+  overflow: hidden;
 
   @include dark-mode {
     border-top-color: $dark-border-color;
@@ -170,29 +190,35 @@
 
 .info {
   display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-md;
+  flex-wrap: nowrap;
+  gap: $spacing-sm;
   align-items: center;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .infoItem {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: $spacing-xs;
-  color: $text-disabled;
+  flex-shrink: 0;
+  color: $text-tertiary;
   font-size: $font-size-sm;
+  white-space: nowrap;
 
   svg {
     flex-shrink: 0;
+    opacity: 0.85;
   }
 
   @include dark-mode {
-    color: $dark-text-secondary;
-    opacity: 0.7;
+    color: $dark-text-tertiary;
   }
 }
 
 .readMore {
+  flex-shrink: 0;
+  white-space: nowrap;
   color: $primary-color;
   text-decoration: none;
   font-size: $font-size-sm;

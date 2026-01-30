@@ -4,10 +4,11 @@
 .empty {
   @include flex-center;
   @include flex-column;
-  gap: $spacing-sm;
-  padding: $spacing-xxl;
+  gap: $spacing-md;
+  padding: $spacing-xxl $spacing-xl;
   color: $text-secondary;
   text-align: center;
+  min-height: 200px;
 
   @include dark-mode {
     color: $dark-text-secondary;
@@ -16,12 +17,22 @@
 
 .message {
   font-size: $font-size-lg;
-  font-weight: $font-weight-medium;
+  font-weight: $font-weight-semibold;
   margin: 0;
+  color: $text-primary;
+
+  @include dark-mode {
+    color: $dark-text-primary;
+  }
 }
 
 .description {
   font-size: $font-size-base;
   margin: 0;
-  opacity: 0.8;
+  color: $text-tertiary;
+  max-width: 360px;
+
+  @include dark-mode {
+    color: $dark-text-tertiary;
+  }
 }
