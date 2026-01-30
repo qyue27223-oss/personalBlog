@@ -40,8 +40,13 @@
 
 .section {
   @include flex-column;
-  gap: $spacing-md;
+  gap: $spacing-sm;
   min-width: 0; // 防止长文本撑破网格
+}
+
+// 快速链接区块：标题与列表间距更紧凑
+.sectionQuickLinks {
+  gap: $spacing-sm;
 }
 
 .sectionTitle {
@@ -66,22 +71,29 @@
   }
 }
 
+// 快速链接：横向排列更紧凑，减少视觉空洞
 .linkList {
   list-style: none;
   padding: 0;
   margin: 0;
-  @include flex-column;
-  gap: $spacing-sm;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm $spacing-lg;
+  align-items: center;
 }
 
 .link {
+  display: inline-block;
+  padding: $spacing-xs $spacing-sm;
   color: $text-secondary;
   text-decoration: none;
   font-size: $font-size-base;
+  border-radius: $border-radius-base;
   @include transition();
 
   &:hover {
     color: $primary-color;
+    background: rgba($primary-color, 0.06);
   }
 
   @include dark-mode {
@@ -89,7 +101,20 @@
 
     &:hover {
       color: $primary-hover;
+      background: rgba($primary-color, 0.12);
     }
+  }
+}
+
+// 联系提示文案（社交链接上方）
+.contactPrompt {
+  font-size: $font-size-base;
+  color: $text-secondary;
+  line-height: $line-height-base;
+  margin: 0 0 $spacing-sm 0;
+
+  @include dark-mode {
+    color: $dark-text-secondary;
   }
 }
 

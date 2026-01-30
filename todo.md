@@ -44,7 +44,8 @@
 - [x] 实现侧边栏组件（分类列表、标签云；仅文章/项目列表页展示；点击为筛选占位）
 
 ### 2.2 首页开发 ✅
-- [x] 设计首页布局（轮播图、文章列表）
+- [x] 设计首页布局（轮播图、全部项目、文章列表）
+- [x] 实现「全部项目」区块（2x2 网格、ProjectCard、查看更多链接）
 - [x] 实现文章卡片组件（ArticleCard）
 - [x] 实现分页功能
 - [x] 添加加载状态和空状态处理
@@ -65,7 +66,8 @@
 - [ ] 实现评论功能（可选）
 
 ### 2.5 项目列表与详情 ✅
-- [x] 项目列表页（`pages/Projects`，Mock、分页、ProjectCard）
+- [x] 项目列表页（`pages/Project`，Mock、分页、ProjectCard，样式见 Project.module.scss）
+- [x] 项目卡片（ProjectCard）图二风格：标题+GitHub/外链图标、描述、技术标签
 - [x] 项目详情页（按 id 展示）
 - [x] Mock 数据 `public/mock/projects.json`
 

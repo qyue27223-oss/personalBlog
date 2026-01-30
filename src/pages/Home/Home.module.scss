@@ -156,10 +156,31 @@
   background: $background-color;
 }
 
+// ========== 全部项目样式（2x2 网格） ==========
+// scroll-margin-top：分页滚动定位时保留顶部空间，避免标题被 sticky 头部遮挡
+.projectsSection {
+  @include flex-column;
+  gap: $spacing-xl;
+  scroll-margin-top: 80px; // 约等于 Header 高度 + 间距
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-xl;
+
+  @include respond-below('sm') {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
 // ========== 文章列表样式 ==========
+// scroll-margin-top：分页滚动定位时保留顶部空间，避免标题被 sticky 头部遮挡
 .articlesSection {
   @include flex-column;
   gap: $spacing-xl;
+  scroll-margin-top: 80px; // 约等于 Header 高度 + 间距
 }
 
 .sectionTitle {

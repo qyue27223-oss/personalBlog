@@ -8,7 +8,9 @@
       "link": "https://github.com",
       "coverImage": "https://picsum.photos/seed/blog/800/400",
       "techStack": ["React", "TypeScript", "Vite", "SCSS"],
-      "createdAt": "2024-01-20"
+      "createdAt": "2024-01-20",
+      "views": 1234,
+      "likes": 89
     },
     {
       "id": "2",
@@ -18,7 +20,9 @@
       "link": "https://github.com",
       "coverImage": "https://picsum.photos/seed/ui/800/400",
       "techStack": ["React", "TypeScript", "Storybook"],
-      "createdAt": "2024-01-15"
+      "createdAt": "2024-01-15",
+      "views": 856,
+      "likes": 62
     },
     {
       "id": "3",
@@ -28,7 +32,9 @@
       "link": "https://github.com",
       "coverImage": "https://picsum.photos/seed/todo/800/400",
       "techStack": ["React", "Zustand", "LocalStorage"],
-      "createdAt": "2024-01-10"
+      "createdAt": "2024-01-10",
+      "views": 612,
+      "likes": 45
     },
     {
       "id": "4",
@@ -38,7 +44,9 @@
       "link": "https://github.com",
       "coverImage": "https://picsum.photos/seed/weather/800/400",
       "techStack": ["React", "API", "CSS"],
-      "createdAt": "2024-01-05"
+      "createdAt": "2024-01-05",
+      "views": 756,
+      "likes": 45
     },
     {
       "id": "5",
@@ -48,7 +56,9 @@
       "link": "https://github.com",
       "coverImage": "https://picsum.photos/seed/resume/800/400",
       "techStack": ["React", "PDF", "CSS"],
-      "createdAt": "2024-01-01"
+      "createdAt": "2024-01-01",
+      "views": 432,
+      "likes": 28
     },
     {
       "id": "6",
@@ -58,7 +68,9 @@
       "link": "https://github.com",
       "coverImage": "https://picsum.photos/seed/rss/800/400",
       "techStack": ["React", "RSS", "IndexedDB"],
-      "createdAt": "2023-12-28"
+      "createdAt": "2023-12-28",
+      "views": 521,
+      "likes": 33
     }
   ]
 }

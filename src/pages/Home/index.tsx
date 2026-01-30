@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import ArticleCard from '@/components/ui/ArticleCard';
+import ProjectCard from '@/components/ui/ProjectCard';
 import Loading from '@/components/ui/Loading';
 import Empty from '@/components/ui/Empty';
 import Pagination from '@/components/ui/Pagination';
 import { useMockData, usePagination } from '@/hooks';
-import { Article } from '@/types';
+import { Article, Project } from '@/types';
 import styles from './Home.module.scss';
 
 interface CarouselItem {
@@ -18,6 +19,8 @@ interface CarouselItem {
 
 const Home: React.FC = () => {
   const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
+  const projectsSectionRef = useRef<HTMLElement>(null);
+  const articlesSectionRef = useRef<HTMLElement>(null);
 
   // 使用公共 Hook 加载数据
   const { data: carouselItems } = useMockData<CarouselItem[]>(
@@ -28,12 +31,23 @@ const Home: React.FC = () => {
     '/mock/articles.json',
     'articles'
   );
+  const { data: allProjects, loading: projectsLoading } = useMockData<Project[]>(
+    '/mock/projects.json',
+    'projects'
+  );
 
-  // 使用公共分页 Hook
+  // 使用公共分页 Hook（文章）
   const { paginatedData: articles, totalPages, setPage, pagination } = usePagination<Article>(
     allArticles || [],
     { pageSize: 6 }
   );
+  // 项目分页，与全部文章逻辑一致
+  const {
+    paginatedData: projects,
+    totalPages: projectTotalPages,
+    setPage: setProjectPage,
+    pagination: projectPagination,
+  } = usePagination<Project>(allProjects || [], { pageSize: 4 });
 
   // 轮播图自动播放
   useEffect(() => {
@@ -63,6 +77,24 @@ const Home: React.FC = () => {
     setCurrentCarouselIndex(index);
   };
 
+  // 分页切换时滚动到对应区块顶部（双 rAF 确保在 React 提交更新并绘制后再滚动）
+  const scrollToSection = (ref: React.RefObject<HTMLElement | null>) => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  };
+
+  const handleProjectPageChange = (page: number) => {
+    setProjectPage(page);
+    scrollToSection(projectsSectionRef);
+  };
+
+  const handleArticlePageChange = (page: number) => {
+    setPage(page);
+    scrollToSection(articlesSectionRef);
+  };
 
   return (
     <div className={styles.homePage}>
@@ -128,8 +160,31 @@ const Home: React.FC = () => {
           </section>
         )}
 
+        {/* 全部项目：分页逻辑与全部文章一致 */}
+        <section ref={projectsSectionRef} className={styles.projectsSection}>
+          <h2 className={styles.sectionTitle}>全部项目</h2>
+          {projectsLoading ? (
+            <Loading />
+          ) : projects.length > 0 ? (
+            <>
+              <div className={styles.projectsGrid}>
+                {projects.map((project) => (
+                  <ProjectCard key={project.id} project={project} />
+                ))}
+              </div>
+              <Pagination
+                currentPage={projectPagination.page}
+                totalPages={projectTotalPages}
+                onPageChange={handleProjectPageChange}
+              />
+            </>
+          ) : (
+            <Empty message="暂无项目" />
+          )}
+        </section>
+
         {/* 文章列表 */}
-        <section className={styles.articlesSection}>
+        <section ref={articlesSectionRef} className={styles.articlesSection}>
           <h2 className={styles.sectionTitle}>全部文章</h2>
 
           {loading ? (
@@ -146,7 +201,7 @@ const Home: React.FC = () => {
               <Pagination
                 currentPage={pagination.page}
                 totalPages={totalPages}
-                onPageChange={setPage}
+                onPageChange={handleArticlePageChange}
               />
             </>
           ) : (

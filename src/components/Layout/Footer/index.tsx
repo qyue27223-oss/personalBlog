@@ -47,7 +47,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
           </div>
 
           {/* 快速链接 */}
-          <div className={styles.section}>
+          <div className={`${styles.section} ${styles.sectionQuickLinks}`}>
             <h3 className={styles.sectionTitle}>快速链接</h3>
             <ul className={styles.linkList}>
               {NAV_ITEMS.map((link) => (
@@ -63,6 +63,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
           {/* 社交链接 */}
           <div className={styles.section}>
             <h3 className={styles.sectionTitle}>关注我</h3>
+            <p className={styles.contactPrompt}>如果您有任何问题欢迎随时与我联系。</p>
             <div className={styles.socialLinks}>
               {socialLinks.map((social) => {
                 const Icon = social.icon;

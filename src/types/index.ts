@@ -41,6 +41,10 @@ export interface Project {
   coverImage?: string;
   techStack?: string[];
   createdAt?: string;
+  /** 浏览量 */
+  views?: number;
+  /** 点赞数 */
+  likes?: number;
 }
 
 // 路由参数类型 - 需要满足 Record<string, string | undefined> 约束

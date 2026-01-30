@@ -1,9 +1,10 @@
 @use '@/styles/variables' as *;
 @use '@/styles/mixins' as *;
 
+// 项目卡片：图二风格 - 深色圆角卡片，标题行带 GitHub/外链图标，描述 + 技术标签
 .card {
   background: $background-color;
-  border-radius: $border-radius-md;
+  border-radius: $border-radius-lg;
   overflow: hidden;
   box-shadow: $shadow-base;
   @include transition();
@@ -11,33 +12,11 @@
 
   &:hover {
     box-shadow: $shadow-md;
-    transform: translateY(-4px);
+    transform: translateY(-2px);
   }
 
   @include dark-mode {
     background: $dark-bg-secondary;
-  }
-}
-
-.coverLink {
-  display: block;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  padding-top: 56.25%;
-}
-
-.coverImage {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  @include transition();
-
-  .card:hover & {
-    transform: scale(1.05);
   }
 }
 
@@ -48,10 +27,21 @@
   flex: 1;
 }
 
+// 标题行：左侧标题，右侧 GitHub + 外链图标
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $spacing-md;
+  min-width: 0;
+}
+
 .title {
   font-size: $font-size-xl;
   font-weight: $font-weight-bold;
   margin: 0;
+  flex: 1;
+  min-width: 0;
 
   @include dark-mode {
     color: $dark-text-primary;
@@ -69,6 +59,34 @@
 
   @include dark-mode {
     color: $dark-text-primary;
+
+    &:hover {
+      color: $primary-hover;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  flex-shrink: 0;
+}
+
+.iconLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-secondary;
+  text-decoration: none;
+  @include transition();
+
+  &:hover {
+    color: $primary-color;
+  }
+
+  @include dark-mode {
+    color: $dark-text-secondary;
 
     &:hover {
       color: $primary-hover;
@@ -94,18 +112,54 @@
   gap: $spacing-sm;
 }
 
+// 药丸状技术标签，与卡片背景略有区分
 .tech {
   display: inline-block;
   padding: $spacing-xs $spacing-sm;
-  background: rgba($primary-color, 0.1);
-  color: $primary-color;
+  background: rgba($text-primary, 0.08);
+  color: $text-primary;
   border-radius: $border-radius-base;
   font-size: $font-size-xs;
   font-weight: $font-weight-medium;
 
   @include dark-mode {
-    background: rgba($primary-color, 0.2);
-    color: $primary-hover;
+    background: rgba($dark-text-primary, 0.15);
+    color: $dark-text-secondary;
+  }
+}
+
+// 底部元信息行：日期、浏览量、点赞 | 阅读更多（图一风格）
+.footerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+  padding-top: $spacing-md;
+  margin-top: $spacing-sm;
+  border-top: 1px solid $border-color-light;
+
+  @include dark-mode {
+    border-top-color: $dark-border-color;
+  }
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $spacing-md;
+  min-width: 0;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: $font-size-sm;
+  color: $text-secondary;
+
+  @include dark-mode {
+    color: $dark-text-secondary;
   }
 }
 
@@ -113,11 +167,11 @@
   display: inline-flex;
   align-items: center;
   gap: $spacing-xs;
-  margin-top: auto;
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
   color: $primary-color;
   text-decoration: none;
+  flex-shrink: 0;
   @include transition();
 
   &:hover {
