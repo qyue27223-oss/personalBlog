@@ -22,7 +22,7 @@
 
   @include dark-mode {
     color: $dark-text-primary;
-    border-bottom-color: $primary-color;
+    border-bottom-color: $primary-hover;
   }
 }
 

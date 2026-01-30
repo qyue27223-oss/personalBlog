@@ -39,7 +39,12 @@ const Sidebar: React.FC<SidebarProps> = ({ className, onCategorySelect, onTagSel
     <aside className={`${styles.sidebar} ${className || ''}`}>
       {/* 分类列表：点击为筛选主内容，不跳转 */}
       <div className={styles.widget}>
-        <h3 className={styles.widgetTitle}>分类</h3>
+        <div className={styles.widgetTitleRow}>
+          <div className={styles.iconContainer}>
+            <i className={`iconfont icon-fenlei ${styles.widgetIcon}`} aria-hidden />
+          </div>
+          <h3 className={styles.widgetTitle}>分类</h3>
+        </div>
         {loading ? (
           <Loading size="small" />
         ) : categories && categories.length > 0 ? (
@@ -66,7 +71,12 @@ const Sidebar: React.FC<SidebarProps> = ({ className, onCategorySelect, onTagSel
 
       {/* 标签云：点击为筛选主内容，不跳转 */}
       <div className={styles.widget}>
-        <h3 className={styles.widgetTitle}>标签云</h3>
+        <div className={styles.widgetTitleRow}>
+          <div className={styles.iconContainer}>
+            <i className={`iconfont icon-biaoqian ${styles.widgetIcon}`} aria-hidden />
+          </div>
+          <h3 className={styles.widgetTitle}>标签云</h3>
+        </div>
         {loading ? (
           <Loading size="small" />
         ) : tags && tags.length > 0 ? (

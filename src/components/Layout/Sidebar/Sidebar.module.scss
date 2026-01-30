@@ -30,18 +30,44 @@
   }
 }
 
+.widgetTitleRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin: 0 0 $spacing-md 0;
+  padding-bottom: $spacing-md;
+  border-bottom: 3px solid $accent-color;
+  border-radius: 0;
+
+  @include dark-mode {
+    border-bottom-color: $dark-accent;
+  }
+}
+
+.iconContainer {
+  @include flex-center;
+  line-height: 1;
+}
+
+.widgetIcon {
+  font-size: 1.2em;
+  color: $accent-color;
+
+  @include dark-mode {
+    color: $dark-accent;
+  }
+}
+
 .widgetTitle {
   font-size: $font-size-lg;
   font-weight: $font-weight-semibold;
   color: $text-primary;
-  margin: 0 0 $spacing-md 0;
-  padding-bottom: $spacing-md;
-  border-bottom: 3px solid $primary-color;
-  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
 
   @include dark-mode {
     color: $dark-text-primary;
-    border-bottom-color: $primary-color;
   }
 }
 
@@ -57,7 +83,7 @@
   margin: 0;
 }
 
-// 分类项为按钮，点击触发筛选（不跳转）；样式与原链接一致
+// 分类项为按钮，与标题图标/下划线统一为青绿色系
 .categoryLink {
   display: flex;
   justify-content: space-between;
@@ -75,16 +101,16 @@
   @include transition();
 
   &:hover {
-    color: $primary-color;
-    background: $primary-light;
+    color: $accent-color;
+    background: $accent-light;
   }
 
   @include dark-mode {
     color: $dark-text-secondary;
 
     &:hover {
-      color: $primary-hover;
-      background: $primary-light-hover;
+      color: $dark-accent;
+      background: rgba(45, 212, 191, 0.15);
     }
   }
 }
@@ -109,12 +135,12 @@
   gap: $spacing-sm;
 }
 
-// 标签为按钮，点击触发筛选（不跳转）
+// 标签为按钮，与标题图标/下划线统一为青绿色系，避免蓝绿混搭违和
 .tag {
   display: inline-block;
   padding: $spacing-xs $spacing-md;
-  background: $primary-light;
-  color: $primary-color;
+  background: $accent-light;
+  color: $accent-color;
   border-radius: $border-radius-full;
   font-size: $font-size-sm;
   text-decoration: none;
@@ -124,18 +150,18 @@
   @include transition();
 
   &:hover {
-    background: $primary-color;
+    background: $accent-color;
     color: $background-color;
     transform: translateY(-2px);
     box-shadow: $shadow-sm;
   }
 
   @include dark-mode {
-    background: $primary-light-hover;
-    color: $primary-hover;
+    background: rgba(45, 212, 191, 0.15);
+    color: $dark-accent;
 
     &:hover {
-      background: $primary-color;
+      background: $dark-accent;
       color: $dark-text-primary;
     }
   }

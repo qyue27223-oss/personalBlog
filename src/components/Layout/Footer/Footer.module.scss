@@ -51,6 +51,26 @@
   gap: $spacing-sm;
 }
 
+.sectionTitleRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.iconContainer {
+  @include flex-center;
+  line-height: 1;
+}
+
+.sectionIcon {
+  font-size: 1.2em;
+  color: $accent-color;
+
+  @include dark-mode {
+    color: $dark-accent;
+  }
+}
+
 .sectionTitle {
   font-size: $font-size-lg;
   font-weight: $font-weight-semibold;
@@ -84,6 +104,7 @@
   align-items: center;
 }
 
+// 快速链接与标题图标统一为青绿色系
 .link {
   display: inline-block;
   padding: $spacing-xs $spacing-sm;
@@ -94,16 +115,16 @@
   @include transition();
 
   &:hover {
-    color: $primary-color;
-    background: $primary-light;
+    color: $accent-color;
+    background: $accent-light;
   }
 
   @include dark-mode {
     color: $dark-text-secondary;
 
     &:hover {
-      color: $primary-hover;
-      background: $primary-light-hover;
+      color: $dark-accent;
+      background: rgba(45, 212, 191, 0.15);
     }
   }
 }
@@ -126,6 +147,7 @@
   align-items: center;
 }
 
+// 与「关注我」标题图标统一为青绿色系，避免蓝绿混搭
 .socialLink {
   display: flex;
   align-items: center;
@@ -133,24 +155,24 @@
   width: 42px;
   height: 42px;
   border-radius: $border-radius-lg;
-  background: $primary-light;
-  color: $primary-color;
+  background: $accent-light;
+  color: $accent-color;
   text-decoration: none;
   @include transition();
 
   &:hover {
-    background: $primary-color;
+    background: $accent-color;
     color: $background-color;
     transform: translateY(-2px);
     box-shadow: $shadow-base;
   }
 
   @include dark-mode {
-    background: $primary-light-hover;
-    color: $primary-hover;
+    background: rgba(45, 212, 191, 0.15);
+    color: $dark-accent;
 
     &:hover {
-      background: $primary-color;
+      background: $dark-accent;
       color: $dark-text-primary;
     }
   }

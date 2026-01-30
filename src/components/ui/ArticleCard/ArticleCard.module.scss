@@ -56,13 +56,20 @@
   min-height: 0;
 }
 
+// 分类与标签：分两行展示，均靠左
 .meta {
   display: flex;
-  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: flex-start;
   gap: $spacing-sm;
-  align-items: center;
   min-width: 0;
-  overflow: hidden;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .category {
@@ -171,30 +178,30 @@
   }
 }
 
+// 底部区域：两行布局。图一（文章卡片）信息单独一行靠左，链接单独一行靠右
 .footer {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: $spacing-sm;
+  flex-direction: column;
+  align-items: stretch;
+  gap: $spacing-md;
   margin-top: auto;
   padding-top: $spacing-md;
   border-top: 1px solid $border-color-light;
-  min-width: 0;
-  overflow: hidden;
+  flex-shrink: 0;
 
   @include dark-mode {
     border-top-color: $dark-border-color;
   }
 }
 
+// 第一行：日期、浏览量、点赞数，单独一行靠左
 .info {
   display: flex;
-  flex-wrap: nowrap;
-  gap: $spacing-sm;
+  flex-wrap: wrap;
+  gap: $spacing-md;
   align-items: center;
-  min-width: 0;
-  overflow: hidden;
+  justify-content: flex-start;
+  flex-shrink: 0;
 }
 
 .infoItem {
@@ -216,7 +223,12 @@
   }
 }
 
+// 第二行：阅读更多链接，单独一行靠右
 .readMore {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  align-self: flex-end;
   flex-shrink: 0;
   white-space: nowrap;
   color: $primary-color;

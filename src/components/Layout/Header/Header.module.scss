@@ -118,6 +118,77 @@
   }
 }
 
+// 设置项：下拉触发容器
+.settingsWrap {
+  position: relative;
+  display: inline-flex;
+
+  .navItem {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+  }
+}
+
+// 下拉框
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: $spacing-xs;
+  min-width: 180px;
+  padding: $spacing-xs;
+  background: $surface-color;
+  border: 1px solid $border-color-light;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-md;
+  z-index: $z-index-sticky + 1;
+  animation: slideDown 0.2s ease-out;
+
+  @include dark-mode {
+    background: $dark-bg-elevated;
+    border-color: $dark-border-color;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  border: none;
+  border-radius: $border-radius-sm;
+  background: transparent;
+  color: $text-primary;
+  font-family: inherit;
+  font-size: $font-size-sm;
+  cursor: pointer;
+  text-align: left;
+  @include transition();
+
+  &:hover {
+    background: $primary-light;
+    color: $primary-color;
+  }
+
+  @include dark-mode {
+    color: $dark-text-primary;
+
+    &:hover {
+      background: $primary-light-hover;
+      color: $primary-hover;
+    }
+  }
+}
+
 .mobileMenuButton {
   display: none;
   background: none;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Eye, Heart, Tag as TagIcon } from 'lucide-react';
+import { Calendar, Eye, Heart, Tag as TagIcon, ArrowRight } from 'lucide-react';
 import { Article } from '@/types';
 import { formatDate } from '@/lib';
 import { getArticleDetailPath } from '@/lib/router';
@@ -27,9 +27,11 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, className }) => {
 
       {/* 内容区域 */}
       <div className={styles.content}>
-        {/* 分类和标签 */}
+        {/* 分类和标签：分两行展示，均靠左 */}
         <div className={styles.meta}>
-          <span className={styles.category}>{article.category}</span>
+          <div className={styles.metaRow}>
+            <span className={styles.category}>{article.category}</span>
+          </div>
           {article.tags && article.tags.length > 0 && (
             <div className={styles.tags}>
               {article.tags.slice(0, 3).map((tag) => (
@@ -59,14 +61,14 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, className }) => {
           <div className={styles.info}>
             {/* 发布日期 */}
             <span className={styles.infoItem}>
-              <Calendar size={14} />
+              <Calendar size={16} aria-hidden />
               {formatDate(article.publishDate)}
             </span>
 
             {/* 浏览量 */}
             {article.views !== undefined && (
               <span className={styles.infoItem}>
-                <Eye size={14} />
+                <Eye size={16} aria-hidden />
                 {article.views}
               </span>
             )}
@@ -74,18 +76,19 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, className }) => {
             {/* 点赞数 */}
             {article.likes !== undefined && (
               <span className={styles.infoItem}>
-                <Heart size={14} />
+                <Heart size={16} aria-hidden />
                 {article.likes}
               </span>
             )}
           </div>
 
-          {/* 阅读更多 */}
+          {/* 阅读更多：与项目卡片「查看详情」结构一致 */}
           <Link
             to={getArticleDetailPath(article.id)}
             className={styles.readMore}
           >
-            阅读更多 →
+            阅读更多
+            <ArrowRight size={16} aria-hidden />
           </Link>
         </div>
       </div>

@@ -40,7 +40,12 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
         <div className={styles.content}>
           {/* 关于信息 */}
           <div className={styles.section}>
-            <h3 className={styles.sectionTitle}>关于博客</h3>
+            <div className={styles.sectionTitleRow}>
+              <div className={styles.iconContainer}>
+                <i className={`iconfont icon-boke ${styles.sectionIcon}`} aria-hidden />
+              </div>
+              <h3 className={styles.sectionTitle}>关于博客</h3>
+            </div>
             <p className={styles.sectionDescription}>
               分享前端开发、技术心得和生活感悟的个人博客
             </p>
@@ -48,7 +53,12 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
 
           {/* 快速链接 */}
           <div className={`${styles.section} ${styles.sectionQuickLinks}`}>
-            <h3 className={styles.sectionTitle}>快速链接</h3>
+            <div className={styles.sectionTitleRow}>
+              <div className={styles.iconContainer}>
+                <i className={`iconfont icon-lianjie ${styles.sectionIcon}`} aria-hidden />
+              </div>
+              <h3 className={styles.sectionTitle}>快速链接</h3>
+            </div>
             <ul className={styles.linkList}>
               {NAV_ITEMS.map((link) => (
                 <li key={link.path}>
@@ -62,7 +72,12 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
 
           {/* 社交链接 */}
           <div className={styles.section}>
-            <h3 className={styles.sectionTitle}>关注我</h3>
+            <div className={styles.sectionTitleRow}>
+              <div className={styles.iconContainer}>
+                <i className={`iconfont icon-guanzhu ${styles.sectionIcon}`} aria-hidden />
+              </div>
+              <h3 className={styles.sectionTitle}>关注我</h3>
+            </div>
             <p className={styles.contactPrompt}>如果您有任何问题欢迎随时与我联系。</p>
             <div className={styles.socialLinks}>
               {socialLinks.map((social) => {
