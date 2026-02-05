@@ -7,4 +7,4 @@
  * export { useUIStore } from './uiStore';
  */
 
-export { useThemeStore, syncThemeToDOM } from './themeStore';
+export { useThemeStore, syncThemeToDOM, type ThemeMode } from './themeStore';

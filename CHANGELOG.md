@@ -166,11 +166,18 @@
 
 ### [未发布]
 
+#### ✨ 新增
+- **主题切换下拉**：点击头部「设置」按钮展开下拉框，提供「浅色」「深色」「跟随系统」三种模式，选择后立即生效并持久化；当前选中项高亮显示；移动端设置区同样展示三选项
+
+#### ♻️ 重构
+- **主题 Store**：`themeStore` 由布尔 `isDark` + `toggleTheme` 改为 `themeMode: 'light' | 'dark' | 'system'` + `setThemeMode`；持久化键 `person-blog-theme` 增加迁移逻辑，兼容旧版 `isDark` 数据
+- **App 主题同步**：根据 `themeMode` 与系统 `prefers-color-scheme` 计算实际深色状态并同步到 `document.documentElement`
+
 #### 计划中
 - [ ] 侧栏分类/标签筛选与主内容区数据联调
 - [ ] 搜索功能完善
 - [ ] Markdown 渲染和代码高亮
-- [x] 暗黑模式切换（已实现：设置下拉 → 切换浅色/深色模式）
+- [x] 暗黑模式切换（已实现：设置下拉 → 浅色/深色/跟随系统三选一）
 - [ ] 响应式与性能优化
 
 ---

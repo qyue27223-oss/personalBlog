@@ -60,7 +60,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
               <h3 className={styles.sectionTitle}>快速链接</h3>
             </div>
             <ul className={styles.linkList}>
-              {NAV_ITEMS.map((link) => (
+              {NAV_ITEMS.slice(0, -1).map((link) => (
                 <li key={link.path}>
                   <Link to={link.path} className={styles.link}>
                     {link.label}

@@ -189,6 +189,17 @@
   }
 }
 
+// 当前选中的主题选项
+.dropdownItemActive {
+  background: $primary-light;
+  color: $primary-color;
+
+  @include dark-mode {
+    background: $primary-light-hover;
+    color: $primary-hover;
+  }
+}
+
 .mobileMenuButton {
   display: none;
   background: none;
@@ -234,13 +245,27 @@
   }
 }
 
+// 移动端主题项内图标与文字间距
+.mobileNavItemIcon {
+  flex-shrink: 0;
+  margin-right: $spacing-xs;
+}
+
 .mobileNavItem {
+  display: inline-flex;
+  align-items: center;
   color: $text-secondary;
   text-decoration: none;
   font-size: $font-size-base;
   font-weight: $font-weight-medium;
   padding: $spacing-md;
   border-radius: $border-radius-md;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  width: 100%;
+  text-align: left;
   @include transition();
 
   &:hover {

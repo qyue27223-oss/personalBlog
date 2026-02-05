@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Settings, Sun, Moon } from 'lucide-react';
+import { Menu, X, Settings, Sun, Moon, Monitor } from 'lucide-react';
 import { NAV_ITEMS } from '@/constants/navigation';
-import { useThemeStore } from '@/store/themeStore';
+import { useThemeStore, type ThemeMode } from '@/store';
 import { useMediaQuery } from '@/hooks';
 import styles from './Header.module.scss';
 
@@ -19,8 +19,14 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
   const settingsRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const isMobile = useMediaQuery(MOBILE_MEDIA_QUERY);
-  const isDark = useThemeStore((s) => s.isDark);
-  const toggleTheme = useThemeStore((s) => s.toggleTheme);
+  const themeMode = useThemeStore((s) => s.themeMode);
+  const setThemeMode = useThemeStore((s) => s.setThemeMode);
+
+  const themeOptions: { mode: ThemeMode; label: string; Icon: typeof Sun }[] = [
+    { mode: 'light', label: '浅色', Icon: Sun },
+    { mode: 'dark', label: '深色', Icon: Moon },
+    { mode: 'system', label: '跟随系统', Icon: Monitor },
+  ];
 
   // 从移动端切换到桌面端时关闭移动菜单，避免无关闭按钮
   useEffect(() => {
@@ -85,26 +91,21 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
                 </button>
                 {isSettingsOpen && (
                   <div className={styles.dropdown} role="menu">
-                    <button
-                      type="button"
-                      className={styles.dropdownItem}
-                      onClick={() => {
-                        toggleTheme();
-                      }}
-                      role="menuitem"
-                    >
-                      {isDark ? (
-                        <>
-                          <Sun size={16} aria-hidden />
-                          切换为浅色模式
-                        </>
-                      ) : (
-                        <>
-                          <Moon size={16} aria-hidden />
-                          切换为深色模式
-                        </>
-                      )}
-                    </button>
+                    {themeOptions.map(({ mode, label, Icon }) => (
+                      <button
+                        key={mode}
+                        type="button"
+                        className={`${styles.dropdownItem} ${themeMode === mode ? styles.dropdownItemActive : ''}`}
+                        onClick={() => {
+                          setThemeMode(mode);
+                          setIsSettingsOpen(false);
+                        }}
+                        role="menuitem"
+                      >
+                        <Icon size={16} aria-hidden />
+                        {label}
+                      </button>
+                    ))}
                   </div>
                 )}
               </div>
@@ -137,17 +138,22 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
         <nav className={styles.mobileNav}>
           {NAV_ITEMS.map((item) =>
             item.type === 'dropdown' ? (
-              <button
-                key="settings"
-                type="button"
-                className={styles.mobileNavItem}
-                onClick={() => {
-                  toggleTheme();
-                  closeMobileMenu();
-                }}
-              >
-                {isDark ? '切换为浅色模式' : '切换为深色模式'}
-              </button>
+              <React.Fragment key="settings">
+                {themeOptions.map(({ mode, label, Icon }) => (
+                  <button
+                    key={mode}
+                    type="button"
+                    className={`${styles.mobileNavItem} ${themeMode === mode ? styles.mobileNavItemActive : ''}`}
+                    onClick={() => {
+                      setThemeMode(mode);
+                      closeMobileMenu();
+                    }}
+                  >
+                    <Icon size={18} aria-hidden className={styles.mobileNavItemIcon} />
+                    {label}
+                  </button>
+                ))}
+              </React.Fragment>
             ) : (
               <Link
                 key={item.path}
